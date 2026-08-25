@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { scrollToId } from "@/components/Navbar";
 
 export const HERO_VIDEO_URL = "/assets/payassist-brand-film.mp4";
 
@@ -18,7 +17,9 @@ const Hero = () => {
             if (autoScrolledRef.current) return;
             if (window.scrollY < window.innerHeight * 0.35) {
                 autoScrolledRef.current = true;
-                scrollToId("brands");
+                const lenis = window.__lenis;
+                if (lenis) lenis.scrollTo("#brands", { offset: 0, duration: 1.4 });
+                else document.getElementById("brands")?.scrollIntoView({ behavior: "smooth" });
             }
         };
         video.addEventListener("ended", onEnded);
@@ -68,7 +69,7 @@ const Hero = () => {
                         muted
                         playsInline
                         preload="auto"
-                        className="aspect-video w-full rounded-xl object-contain shadow-2xl shadow-black/40 ring-1 ring-white/10 sm:rounded-2xl lg:mx-auto lg:aspect-auto lg:h-[calc(100svh-72px)] lg:w-auto lg:max-w-full lg:rounded-none lg:shadow-none lg:ring-0"
+                        className="mx-auto aspect-video w-full rounded-xl object-contain shadow-2xl shadow-black/40 ring-1 ring-white/10 sm:rounded-2xl lg:w-[min(100%,calc((100svh-72px)*1.77778))] lg:rounded-none lg:shadow-none lg:ring-0"
                     />
                 </motion.div>
             </div>

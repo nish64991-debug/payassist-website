@@ -108,6 +108,10 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Global navbar: hides smoothly on scroll down (>96px, 6px delta hysteresis), returns on scroll up; wired to both window and Lenis scroll events; never hides while mobile menu open; entrance animation converted from framer to CSS (framer inline transform conflict resolved). Verified with real wheel input down/up.
 - Independently verified by troubleshoot_agent (no testing_agent exists in this environment): all five corrections sound, zero overflow 320–2560px, no regressions.
 
+## Implemented (2026-08-25, iteration 18 — final hero video correction)
+- Hero video box is now mathematically true 16:9 at every breakpoint: width = min(100%, (100svh−72px)×16/9) on desktop, aspect-video + object-contain everywhere; measured ratio 1.7778 at 1920/1440/1366/1280/834/390 with the full frame inside the viewport and 0px overflow.
+- Hero→Brands transition now aligns Brands exactly to viewport top (offset 0): measured heroBottom=0, brandsTop=0 after video end — no sliver, no bleed-through. Video restart-on-return logic intact (independently audited).
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).
