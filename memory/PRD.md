@@ -117,6 +117,10 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Sections: Hero (masked heading "Protection for the devices you depend on.", Explore Protection Plans CTA) → Why ZAssist (7 benefit cards from poster) → Plan Calculator (frontend-only: ADLD 10%/12%/15% band logic with 1/2yr toggle, Screen 9%, Extended 5%, copay max(₹599, 5%), INR en-IN formatting, ineligibility note >₹2.5L for ADLD, result panel with summary + mailto Get Protected with prefilled plan details) → Plan Details (10 covered / 6 keep-in-mind from poster) → Depreciation table (exact 15/30/50/60/75% rows + copay + 15-day cancellation notes) → Service Request (9006825043 tel, support@zassist.co.in, retailer/reimbursement notes, 3 required documents) → CTA to /#contact.
 - Verified: full navigation flow from Our Solutions card; calculator outputs correct for every band (45000→₹4,500/10%, 75000→₹9,000/12%, 2yr→₹6,750/15%, screen ₹6,750/9%, extended ₹3,750/5%, ₹3L ADLD ineligible; copay 5% cases correct); desktop/tablet(834)/mobile(390) all clean with 0px horizontal overflow.
 
+## Update (2026-08-25, iteration 20 — hero true full-bleed)
+- Hero video is now edge-to-edge: desktop/laptop = full viewport width at native 16:9 (left:0→right:viewport, ratio exactly 1.7778 at 1366–2560px, zero side strips, zero overflow); mobile/tablet = full remaining viewport height with object-cover center focal crop (no distortion, no side panels). Removed the rounded/ringed container treatment entirely.
+- Boundary re-verified after the change: heroBottom=0 / brandsTop=0 on video completion — no sliver behind Brands.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).

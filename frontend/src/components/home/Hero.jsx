@@ -53,12 +53,12 @@ const Hero = () => {
                 <div className="absolute bottom-0 left-1/2 h-[40%] w-[110%] -translate-x-1/2 rounded-[100%] bg-radsafe/[0.07] blur-[120px]" />
             </div>
 
-            <div className="relative flex min-h-[calc(100svh-72px)] items-center justify-center px-3 py-6 sm:px-5 lg:block lg:min-h-0 lg:p-0">
+            <div className="relative h-[calc(100svh-72px)] lg:h-auto">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.985 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-                    className="w-full"
+                    className="h-full w-full"
                 >
                     <video
                         ref={videoRef}
@@ -69,7 +69,7 @@ const Hero = () => {
                         muted
                         playsInline
                         preload="auto"
-                        className="mx-auto aspect-video w-full rounded-xl object-contain shadow-2xl shadow-black/40 ring-1 ring-white/10 sm:rounded-2xl lg:w-[min(100%,calc((100svh-72px)*1.77778))] lg:rounded-none lg:shadow-none lg:ring-0"
+                        className="h-full w-full object-cover object-center lg:h-auto lg:object-contain"
                     />
                 </motion.div>
             </div>
