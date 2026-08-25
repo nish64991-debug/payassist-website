@@ -12,8 +12,8 @@ const Home = () => (
         <Hero />
         <Brands />
         <WhyPayAssist />
-        <Approach />
         <Solutions />
+        <Approach />
         <About />
         <Testimonials />
         <Contact />
