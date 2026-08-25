@@ -63,6 +63,11 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Web3Forms access key stored in REACT_APP_WEB3FORMS_ACCESS_KEY (/app/frontend/.env). Footer email corrected to support.zassistcare@payassist.in.
 - PENDING VERIFICATION: end-to-end email delivery could NOT be verified from this preview pod — Cloudflare issues a managed challenge for datacenter IPs at api.web3forms.com (blocks both the headless browser and curl; normal visitor browsers are unaffected). User also had not yet confirmed the Web3Forms mailbox verification email at time of build. Action needed: verify mailbox + send one test from a normal browser.
 
+## Update (2026-08-25, iteration 9 — Contact delivery switched to FormSubmit)
+- Web3Forms failed for the user too (key never activated — verification email not received) and its API Cloudflare-challenges datacenter IPs, so delivery was switched to FormSubmit AJAX endpoint (https://formsubmit.co/ajax/support.zassistcare@payassist.in) — no API key required; first submission triggers an "Activate Form" email to the mailbox.
+- Confirmed from the real browser: request reaches FormSubmit with HTTP 200 and correct payload (_subject "New PayAssist Website Enquiry", _replyto = visitor email, _template table). API response: "This form needs Activation" — activation email has been sent to support.zassistcare@payassist.in.
+- REMAINING USER STEP: click the "Activate Form" link in the FormSubmit email (check spam). Until then the form honestly shows the error state; after activation, submissions deliver and the success state appears. Web3Forms key removed from .env.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).
