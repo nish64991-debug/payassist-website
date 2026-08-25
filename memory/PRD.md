@@ -17,11 +17,16 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Home sections (components/home/): Hero, Ecosystem marquee, WhyPayAssist, Approach (numbered manifesto), Solutions (dual vertical cards), About (team + metrics), Testimonials, Contact CTA.
 
 ## Implemented (2026-08-25)
-- Full responsive skeleton + premium first pass of all 8 home sections with scroll reveals, kinetic hero (masked line-by-line), 16:9 video placeholder frame with parallax + mouse tilt, slow partner marquee, manifesto chapters, solution cards linking to vertical pages.
+- Full responsive skeleton + premium first pass of all 8 home sections with scroll reveals, slow partner marquee, manifesto chapters, solution cards linking to vertical pages.
 - Z Assist and RadSafe dedicated page shells: branded hero (emerald/cyan), reserved module slots (calculator explicitly reserved, awaiting spec), back-to-home CTAs.
 - Email-only contact (mailto: hello@payassist.com placeholder address).
 - data-testid attributes on all interactive/structural elements.
-- Verified: desktop hero/solutions/manifesto render, mobile hero + hamburger menu, /z-assist route. No console errors.
+
+## Implemented (2026-08-25, iteration 2 — Hero + Header per component instruction)
+- Real assets integrated: official PayAssist logo + 16:9 brand film (1280x720 h264/aac, 10s), served locally from /public/assets.
+- Hero rebuilt video-first: NO headline/copy/CTAs/overlays — video is the sole visual; autoplay muted loop playsInline + extracted poster frame fallback; desktop full-bleed cinematic, mobile complete uncropped 16:9 frame (rounded, ringed) centered in a subtle deep-navy ambient environment with faint brand glows (no black bars, no decoration).
+- Header rebuilt: white premium bar — logo left, center nav (Home / Why PayAssist / Solutions / About), Contact Us dark-navy pill CTA far right (Contact removed from center nav); mobile keeps compact Contact Us + hamburger opening a clean white menu with large links + Z Assist/RadSafe quick links.
+- Verified: desktop/tablet(834px)/mobile(390px) hero framing, mobile menu, video file integrity (200 OK locally). Note: headless test browser lacks h264 codecs, so playback was verified via file/poster; real browsers play it normally.
 
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
