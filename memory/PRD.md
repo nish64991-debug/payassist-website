@@ -28,6 +28,11 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Header rebuilt: white premium bar — logo left, center nav (Home / Why PayAssist / Solutions / About), Contact Us dark-navy pill CTA far right (Contact removed from center nav); mobile keeps compact Contact Us + hamburger opening a clean white menu with large links + Z Assist/RadSafe quick links.
 - Verified: desktop/tablet(834px)/mobile(390px) hero framing, mobile menu, video file integrity (200 OK locally). Note: headless test browser lacks h264 codecs, so playback was verified via file/poster; real browsers play it normally.
 
+## Implemented (2026-08-25, iteration 3 — Brands section + Hero scroll choreography)
+- "Protection Across 50+ Brands" section (id="brands", replaces old Ecosystem marquee): exact supplied copy, centered heading/subtitle, clean white section, infinite CSS-transform marquee of 17 brand cards (white cards, subtle border, soft shadow, edge fades), hover pause + touch pause, no page overflow, slower drift on mobile.
+- Logos: official SVG marks served locally from /public/assets/brands (Simple Icons colored per brand + Haier wordmark). Voltas and O General have no reachable official asset — clean brand-colored typographic placeholders in use, flagged for replacement when official assets are supplied.
+- Hero choreography: video no longer loops — on natural completion it smooth-scrolls once to Brands (only if user is still at the hero; manual scroll always wins); returning to the hero (≥50% visible) restarts the video from 0:00. Verified via synthetic ended-event dispatch (headless browser can't play h264): ended → scrolled to brands; return → currentTime reset to 0.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).

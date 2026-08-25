@@ -72,6 +72,11 @@ html.lenis body {
 .animate-pa-marquee:hover {
     animation-play-state: paused;
 }
+@media (max-width: 640px) {
+    .animate-pa-marquee {
+        animation-duration: 58s;
+    }
+}
 
 /* Ambient pulse for status dots / play button */
 @keyframes pa-pulse-ring {
