@@ -97,6 +97,9 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 ## Update (2026-08-25, iteration 15 — researched layer descriptions)
 - Rewrote the six layer one-liners after web research on anti-radiation chip construction: descriptions now describe each layer's actual physical/material role (resin = protective coating, quantum sheet = proprietary functional layer, neodymium = magnetic core, acrylic = rigid substrate, gumming = adhesive bond, paper release = peel-away backing). No health/outcome claims.
 
+## Update (2026-08-25, iteration 16 — chip hover interaction)
+- Exploded chip view now spreads its six layers further apart on hover (tap-toggle on touch) with a smooth 0.6s settle, caption switches between "hover to expand" / "release to settle"; entrance stagger preserved; stack re-centered in its frame. Verified rest + hover states and zero overflow.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).

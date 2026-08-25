@@ -1,4 +1,5 @@
-import { motion } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import Reveal from "@/components/Reveal";
 
 const LAYERS = [
@@ -19,8 +20,21 @@ const PLATE_STYLES = [
     "bg-[#F3EFE6] border-white/60",
 ];
 
-const ExplodedChip = () => (
-    <div className="relative mx-auto aspect-square w-full max-w-[340px] sm:max-w-[420px]" data-testid="radsafe-exploded-chip">
+const ExplodedChip = () => {
+    const ref = useRef(null);
+    const inView = useInView(ref, { once: true, margin: "-60px" });
+    const [hovered, setHovered] = useState(false);
+    const spread = hovered ? 58 : 40;
+
+    return (
+    <div
+        ref={ref}
+        className="relative mx-auto aspect-square w-full max-w-[340px] cursor-pointer sm:max-w-[420px]"
+        data-testid="radsafe-exploded-chip"
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onTouchStart={() => setHovered((h) => !h)}
+    >
         {/* RF field rings */}
         <svg className="absolute inset-0 h-full w-full opacity-25" viewBox="0 0 400 400" aria-hidden="true">
             {[70, 110, 150, 190].map((r) => (
@@ -28,14 +42,20 @@ const ExplodedChip = () => (
             ))}
         </svg>
         <div className="absolute inset-0 [perspective:1100px]">
-            <div className="absolute left-1/2 top-1/2 h-0 w-0" style={{ transformStyle: "preserve-3d" }}>
+            <div className="absolute left-[54%] top-[47%] h-0 w-0" style={{ transformStyle: "preserve-3d" }}>
                 {PLATE_STYLES.map((cls, i) => (
                     <motion.div
                         key={i}
                         initial={{ opacity: 0, transform: `translate(-50%,-50%) rotateX(58deg) rotateZ(-42deg) translateZ(${220 - i * 10}px)` }}
-                        whileInView={{ opacity: 1, transform: `translate(-50%,-50%) rotateX(58deg) rotateZ(-42deg) translateZ(${(5 - i) * 40 - 100}px)` }}
-                        viewport={{ once: true, margin: "-60px" }}
-                        transition={{ duration: 0.9, delay: 0.12 * i, ease: [0.16, 1, 0.3, 1] }}
+                        animate={
+                            inView
+                                ? {
+                                      opacity: 1,
+                                      transform: `translate(-50%,-50%) rotateX(58deg) rotateZ(-42deg) translateZ(${(5 - i) * spread - (spread * 2.5)}px)`,
+                                  }
+                                : {}
+                        }
+                        transition={{ duration: hovered ? 0.6 : 0.9, delay: hovered ? 0 : 0.12 * i, ease: [0.16, 1, 0.3, 1] }}
                         className={`absolute left-1/2 top-1/2 h-32 w-32 rounded-2xl border shadow-xl shadow-black/30 sm:h-44 sm:w-44 ${cls}`}
                         style={{ transformStyle: "preserve-3d" }}
                     >
@@ -51,10 +71,11 @@ const ExplodedChip = () => (
             </div>
         </div>
         <p className="absolute inset-x-0 -bottom-2 text-center font-mono text-[10px] uppercase tracking-[0.3em] text-slate-500">
-            Exploded view · six engineered layers
+            Exploded view · six engineered layers · {hovered ? "release to settle" : "hover to expand"}
         </p>
     </div>
-);
+    );
+};
 
 const RadTech = () => (
     <section id="radsafe-tech" data-testid="radsafe-tech" className="relative overflow-hidden bg-navy-950 py-20 lg:py-28">
