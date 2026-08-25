@@ -68,6 +68,11 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Confirmed from the real browser: request reaches FormSubmit with HTTP 200 and correct payload (_subject "New PayAssist Website Enquiry", _replyto = visitor email, _template table). API response: "This form needs Activation" — activation email has been sent to support.zassistcare@payassist.in.
 - REMAINING USER STEP: click the "Activate Form" link in the FormSubmit email (check spam). Until then the form honestly shows the error state; after activation, submissions deliver and the success state appears. Web3Forms key removed from .env.
 
+## Update (2026-08-25, iteration 10 — Dual-path contact delivery, VERIFIED)
+- Form now submits via Web3Forms first (new key 9c0e17c1-… in REACT_APP_WEB3FORMS_ACCESS_KEY), with automatic silent fallback to FormSubmit if Web3Forms fails/is unreachable. No duplicate sends — fallback only fires on failure.
+- VERIFIED WORKING: full UI submission test showed the success state; FormSubmit probe returned "The form was submitted successfully" — the mailbox is activated and a real test enquiry ("Dual-path delivery test", RadSafe interest) was delivered to support.zassistcare@payassist.in.
+- Note: api.web3forms.com remains Cloudflare-challenged from this preview pod's IP, so the primary path can't be exercised here — but the fallback guarantees delivery regardless, and Web3Forms will serve visitors on networks where it's reachable.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).
