@@ -1,0 +1,40 @@
+# PayAssist — PRD
+
+## Original Problem Statement
+Build a premium, modern, responsive, frontend-only website for PayAssist — the mother brand for two verticals: **Z Assist** (device protection / extended warranty) and **RadSafe** (responsible device usage + EMF-exposure awareness). Brand/marketing site, not a web app. Master brief establishes IA, positioning and technical boundaries; detailed component-by-component instructions arrive in later iterations. No backend, no DB, no auth, no CMS, no payments. Z Assist will eventually host a lightweight client-side plan calculator (logic TBD later). Contact is email-CTA only. A user-supplied 16:9 hero video and official logo will be provided later and must not be recreated.
+
+## User Decisions So Far
+- Assets (logo, video, reference screenshots) not yet supplied — placeholders in use, swappable.
+- Build the structure/skeleton now; wait for component-specific instructions before final design decisions.
+- Z Assist calculator: leave out until exact logic is provided (reserved module slot only).
+- Motion direction (system directive): award-worthy craft — kinetic masked hero reveal, Lenis smooth scroll, framer-motion scroll reveals, editorial marquee, subtle parallax/3D tilt on hero frame.
+
+## Architecture
+- Frontend-only React (CRA/craco) + Tailwind + framer-motion + lenis + lucide-react. Backend template left untouched/unused.
+- Routes: `/` (Home), `/z-assist`, `/radsafe` (react-router-dom v7).
+- Design system: `/app/design_guidelines.json` — PayAssist blue #0052FF, deep navy #0B132B/#121E36/#070C1B, mist #F4F7FA; Z Assist accent #00D68F, RadSafe accent #00E5FF; Plus Jakarta Sans (display) / DM Sans (body) / JetBrains Mono (labels).
+- Global: Lenis smooth scroll + hash-scroll manager in App.js; glass Navbar; dark Footer.
+- Home sections (components/home/): Hero, Ecosystem marquee, WhyPayAssist, Approach (numbered manifesto), Solutions (dual vertical cards), About (team + metrics), Testimonials, Contact CTA.
+
+## Implemented (2026-08-25)
+- Full responsive skeleton + premium first pass of all 8 home sections with scroll reveals, kinetic hero (masked line-by-line), 16:9 video placeholder frame with parallax + mouse tilt, slow partner marquee, manifesto chapters, solution cards linking to vertical pages.
+- Z Assist and RadSafe dedicated page shells: branded hero (emerald/cyan), reserved module slots (calculator explicitly reserved, awaiting spec), back-to-home CTAs.
+- Email-only contact (mailto: hello@payassist.com placeholder address).
+- data-testid attributes on all interactive/structural elements.
+- Verified: desktop hero/solutions/manifesto render, mobile hero + hamburger menu, /z-assist route. No console errors.
+
+## Personas
+- Consumer evaluating device protection (Z Assist prospect).
+- Health-conscious household / parent (RadSafe prospect).
+- Retail/brand partner evaluating PayAssist ecosystem.
+
+## Backlog (awaiting user instructions)
+- P0: Swap in official PayAssist logo asset + 16:9 hero video (preserve aspect ratio; mobile ambient treatment).
+- P0: Component-by-component detailed design passes per upcoming instructions (Hero, Nav, each section).
+- P1: Z Assist plan calculator (client-side; exact inputs/pricing TBD).
+- P1: Z Assist & RadSafe full page builds (3–4 major sections each).
+- P2: Final copy, legal links, real team bios, real partner logos, testimonials content.
+- P2: Final polish pass — animations, transitions, responsive refinements per spec.
+
+## Next Tasks
+- Receive logo/video assets + first component-specific instruction; implement hero/video swap first.

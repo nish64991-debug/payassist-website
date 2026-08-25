@@ -1,0 +1,261 @@
+{
+  "project_name": "PayAssist",
+  "app_type": "marketing_site",
+  "archetype": "THE PERFORMANCE PRO & SWISS HYBRID",
+  "theme": "Light & Deep Navy High-Contrast System",
+  "design_principles": [
+    "Fusion over Imitation: Blend high-end fintech precision with hardware safety laboratory aesthetics.",
+    "Cinematic Momentum: Utilize line-by-line masked reveals, Lenis smooth scrolling, and subtle 3D/parallax hero depth.",
+    "Manifesto Structure: Present 'Our Approach' as numbered editorial manifesto chapters with bold typography.",
+    "Sub-Brand Identity Matrix: Maintain mother-brand PayAssist blue while granting Z Assist (Emerald Electric) and RadSafe (Cyan Bio-Shield) clear visual accents.",
+    "Optical & Spacing Integrity: Enforce generous 2-3x padding, sharp borders with subtle glows, glassmorphism nav, and accessible contrast ratios."
+  ],
+  "typography": {
+    "fonts": {
+      "headline_font": "Cabinet Grotesk / Plus Jakarta Sans / Outfit",
+      "body_font": "DM Sans / Inter",
+      "mono_font": "JetBrains Mono"
+    },
+    "font_imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap');"
+    ],
+    "scale": {
+      "h1_hero": "text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.08]",
+      "h2_section": "text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight leading-[1.15]",
+      "h3_card": "text-xl sm:text-2xl font-semibold tracking-normal leading-snug",
+      "body_large": "text-lg sm:text-xl font-normal leading-relaxed text-slate-600 dark:text-slate-300",
+      "body_standard": "text-base font-normal leading-relaxed text-slate-600 dark:text-slate-300",
+      "caption_mono": "text-xs sm:text-sm font-mono uppercase tracking-[0.25em] text-blue-600 dark:text-blue-400 font-semibold"
+    }
+  },
+  "colors": {
+    "palette": {
+      "payassist_primary_blue": "#0052FF",
+      "payassist_primary_hover": "#0041CC",
+      "deep_navy_bg": "#0B132B",
+      "deep_navy_surface": "#121E36",
+      "deep_navy_border": "rgba(255, 255, 255, 0.12)",
+      "soft_blue_gray_bg": "#F4F7FA",
+      "light_surface": "#FFFFFF",
+      "light_border": "#E2E8F0",
+      "text_dark": "#0F172A",
+      "text_muted_light": "#64748B",
+      "text_light": "#F8FAFC",
+      "text_muted_dark": "#94A3B8"
+    },
+    "sub_brands": {
+      "z_assist": {
+        "accent": "#00D68F",
+        "gradient": "from-emerald-500/20 via-teal-500/10 to-transparent",
+        "tag": "Device Protection & Extended Warranty",
+        "badge_class": "bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20"
+      },
+      "rad_safe": {
+        "accent": "#00E5FF",
+        "gradient": "from-cyan-500/20 via-blue-500/10 to-transparent",
+        "tag": "Responsible Tech & EMF Exposure Awareness",
+        "badge_class": "bg-cyan-500/10 text-cyan-600 dark:text-cyan-400 border border-cyan-500/20"
+      }
+    }
+  },
+  "layout_and_spacing": {
+    "container_padding": "px-4 sm:px-8 lg:px-16 max-w-7xl mx-auto",
+    "section_vertical_spacing": "py-20 lg:py-32",
+    "grid_modes": {
+      "tetris_bento": "grid grid-cols-1 md:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8",
+      "features_3col": "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8",
+      "solutions_2col": "grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12"
+    },
+    "surfaces": {
+      "crystal_glass_header": "backdrop-blur-xl bg-white/80 dark:bg-[#0B132B]/85 border-b border-slate-200/80 dark:border-white/10 shadow-sm",
+      "navy_card": "bg-[#121E36] border border-white/10 rounded-2xl p-8 hover:border-blue-500/40 transition-all duration-300 shadow-xl shadow-black/20",
+      "light_card": "bg-white border border-slate-200 rounded-2xl p-8 hover:border-blue-500/30 transition-all duration-300 shadow-md shadow-slate-200/50"
+    }
+  },
+  "motion_and_effects": {
+    "smooth_scroll": "Lenis Smooth Scroll engine integrated globally",
+    "kinetic_hero_reveal": "Line-by-line staggered Y-translation (duration: 0.8s, ease: [0.16, 1, 0.3, 1])",
+    "marquee": "Editorial Ribbon drift using react-fast-marquee with slow speed (25s per loop)",
+    "3d_parallax": "Framer motion tilt/parallax effect on hero video placeholder card",
+    "micro_interactions": "Subtle scale (1.02) on interactive CTAs, border-color glow transitions, active menu tab pill indicators"
+  },
+  "required_sections_breakdown": [
+    {
+      "id": "navbar",
+      "name": "Floating Glass Navigation Bar",
+      "type": "Global Header",
+      "elements": [
+        "Brand Logo ('PayAssist' with subtle electric blue emblem)",
+        "Desktop Links: Why PayAssist, Our Approach, Solutions (Z Assist / RadSafe), Team, Contact",
+        "Sub-brand Quick Jump badges",
+        "Primary CTA: 'Get Protected'",
+        "Mobile Drawer Toggle"
+      ]
+    },
+    {
+      "id": "hero",
+      "name": "Kinetic Hero with 16:9 Video Host",
+      "type": "Dark Section (#0B132B)",
+      "elements": [
+        "Pill Tag: 'PAYASSIST MOTHER-BRAND INFRASTRUCTURE'",
+        "Line-by-line masked kinetic heading reveal: 'The Future of Total Consumer Technology Protection.'",
+        "Subtitle detailing dual pillars: Z Assist warranty & RadSafe EMF awareness",
+        "16:9 Interactive Video Placeholder Frame with play button micro-animation & glowing ambient backdrop",
+        "Dual Action CTAs: 'Explore Solutions' & 'Watch Product Reel'"
+      ]
+    },
+    {
+      "id": "brand_ecosystem",
+      "name": "Partner/Brand Ecosystem Marquee",
+      "type": "Soft Light/Gray Section (#F4F7FA)",
+      "elements": [
+        "Editorial label: 'TRUSTED BY LEADING TECH MANUFACTURERS & HEALTH INSTITUTIONS'",
+        "Slow, elegant infinite marquee with curated partner emblems (Apple, Samsung, LG, Sony, Dyson, Oura, Garmin, WHO Guidelines)"
+      ]
+    },
+    {
+      "id": "why_payassist",
+      "name": "Why PayAssist Positioning",
+      "type": "Light Section (#FFFFFF)",
+      "elements": [
+        "Section Badge: 'THE PAYASSIST DIFFERENCE'",
+        "Heading: 'Modern devices require modern, multi-layered safeguarding.'",
+        "3-Column Bento Grid: Financial Hardware Insurance, Electromagnetic Biological Safety, Real-Time Sensor Diagnostics"
+      ]
+    },
+    {
+      "id": "our_approach",
+      "name": "Our Approach (Numbered Manifesto)",
+      "type": "Deep Navy Section (#0B132B)",
+      "elements": [
+        "Section Badge: 'OUR MANIFESTO'",
+        "Numbered Chapters (01 Proactive Protection, 02 Science-Backed Exposure Shielding, 03 Frictionless Warranty Claims, 04 Lifetime Device Longevity)",
+        "Large typography with subtle hover highlight interactions"
+      ]
+    },
+    {
+      "id": "our_solutions",
+      "name": "Our Solutions (Z Assist & RadSafe Verticals)",
+      "type": "Soft Light/Gray Section (#F4F7FA)",
+      "elements": [
+        "Section Badge: 'DUAL SOLUTION VERTICALS'",
+        "Card 1 - Z Assist: Extended Warranty & Accidental Damage Protection (Link to Z Assist Page Shell)",
+        "Card 2 - RadSafe: Responsible Usage & EMF Radiation Mitigation (Link to RadSafe Page Shell)",
+        "Feature checklists, stats, and direct navigation buttons"
+      ]
+    },
+    {
+      "id": "about_people",
+      "name": "About / Leadership Team",
+      "type": "Light Section (#FFFFFF)",
+      "elements": [
+        "Section Badge: 'THE MINDS BEHIND PAYASSIST'",
+        "Executive leadership portraits with bios & credentials",
+        "Trust metrics (e.g., '1.2M Devices Secured', '99.4% Claim Satisfaction')"
+      ]
+    },
+    {
+      "id": "testimonials",
+      "name": "Testimonials & Trust Wall",
+      "type": "Deep Navy Section (#0B132B)",
+      "elements": [
+        "Section Badge: 'VERIFIED TRUST'",
+        "Interactive testimonial slider/grid with verified badges, user ratings, and device protection stats"
+      ]
+    },
+    {
+      "id": "contact_cta",
+      "name": "High-Impact Contact CTA & Footer",
+      "type": "Deep Navy Dark Footer (#070C1B)",
+      "elements": [
+        "Massive Typography Callout: 'Ready to safeguard your digital life?'",
+        "Interactive quick inquiry modal / contact trigger form",
+        "Comprehensive site footer with vertical links, legal disclaimers, and live system status pill"
+      ]
+    },
+    {
+      "id": "z_assist_page",
+      "name": "Z Assist Dedicated Shell Page",
+      "type": "Dedicated Page View (/z-assist)",
+      "elements": [
+        "Dedicated Hero with Emerald Accent theme",
+        "Warranty Coverage Calculator / Interactive Plan Selector",
+        "Claim Process Timeline (3-step instant dispatch)",
+        "Device Eligibility List & FAQ Accordion",
+        "Return to PayAssist Home CTA"
+      ]
+    },
+    {
+      "id": "rad_safe_page",
+      "name": "RadSafe Dedicated Shell Page",
+      "type": "Dedicated Page View (/radsafe)",
+      "elements": [
+        "Dedicated Hero with Bio-Shield Cyan theme",
+        "Interactive EMF Exposure Awareness Simulator / Tech Safety Index",
+        "Scientific Lab Research & Certifications Overview",
+        "Responsible Tech Habits Checklist & Protection Gear Guide",
+        "Return to PayAssist Home CTA"
+      ]
+    }
+  ],
+  "image_urls": {
+    "hero_and_tech": [
+      {
+        "url": "https://images.unsplash.com/photo-1513348313239-6ccc6c25c11b?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwzfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwZGV2aWNlJTIwcHJvdGVjdGlvbiUyMHNtYXJ0JTIwZGV2aWNlfGVufDB8fHxibHVlfDE3ODc2Mjc1NjB8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Premium multi-device ecosystem (iPad, iPhone, Apple Watch) on clean studio surface",
+        "use_case": "Z Assist Hero and Device Protection Visuals"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1511467007263-aa72ed0157dd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwyfHxtb2Rlcm4lMjB0ZWNobm9sb2d5JTIwZGV2aWNlJTIwcHJvdGVjdGlvbiUyMHNtYXJ0JTIwZGV2aWNlfGVufDB8fHxibHVlfDE3ODc2Mjc1NjB8MA&ixlib=rb-4.1.0&q=85",
+        "description": "Minimalist black tablet and smart device layout",
+        "use_case": "Why PayAssist hardware card"
+      }
+    ],
+    "lab_and_radsafe": [
+      {
+        "url": "https://images.unsplash.com/photo-1667984550707-bf0beecaa082?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwzfHxsYWJvcmF0b3J5JTIwdGVjaG5vbG9neSUyMHJlc2VhcmNoJTIwd2F2ZSUyMHNlbnNvciUyMGN5YmVyfGVufDB8fHx8MTc4NzYyNzU3MHww&ixlib=rb-4.1.0&q=85",
+        "description": "Glowing circular pulse waveform tech visualization",
+        "use_case": "RadSafe EMF Wave Exposure Shielding visual"
+      },
+      {
+        "url": "https://images.unsplash.com/photo-1782330298826-5f787e536299?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTN8MHwxfHNlYXJjaHwxfHxsYWJvcmF0b3J5JTIwdGVjaG5vbG9neSUyMHJlc2VhcmNoJTIwd2F2ZSUyMHNlbnNvciUyMGN5YmVyfGVufDB8fHx8MTc4NzYyNzU3MHww&ixlib=rb-4.1.0&q=85",
+        "description": "Futuristic circuit board with glowing ring and protective sphere",
+        "use_case": "Our Approach manifesto technology backdrop"
+      }
+    ],
+    "leadership": [
+      {
+        "url": "https://images.pexels.com/photos/34461740/pexels-photo-34461740.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Executive CEO portrait in dark suit on dark blue background",
+        "use_case": "About Us - CEO & Founder profile"
+      },
+      {
+        "url": "https://images.pexels.com/photos/26834968/pexels-photo-26834968.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "description": "Senior Vice President / Chief Safety Officer portrait",
+        "use_case": "About Us - VP of Health & Hardware Safety"
+      }
+    ]
+  },
+  "testing_requirements": {
+    "attribute": "data-testid",
+    "convention": "kebab-case, role-based identifiers for all key buttons, cards, section headers, inputs, and links",
+    "examples": [
+      "data-testid=\"nav-link-solutions\"",
+      "data-testid=\"hero-cta-explore-solutions\"",
+      "data-testid=\"hero-video-play-button\"",
+      "data-testid=\"solution-card-z-assist\"",
+      "data-testid=\"solution-card-radsafe\"",
+      "data-testid=\"manifesto-chapter-01\"",
+      "data-testid=\"contact-modal-trigger\"",
+      "data-testid=\"z-assist-calculator-slider\""
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Build a robust React app using react-router-dom for seamless navigation between PayAssist Home, Z Assist Shell (/z-assist), and RadSafe Shell (/radsafe).",
+    "Implement Lenis or framer-motion smooth scroll behavior to give the website an award-winning momentum feel.",
+    "Ensure all interactive components have explicit text color on hover and meet APCA/WCAG AA contrast requirements.",
+    "Incorporate Framer Motion for the Kinetic Hero heading reveal, manifesto chapter reveals, and card hover states.",
+    "Maintain strict adherence to the light/dark alternating section rhythm (#0B132B dark hero & manifesto -> #F4F7FA light marquee & solutions -> #FFFFFF white features & team).",
+    "Attach data-testid attributes to all interactive and structural elements as defined in testing requirements."
+  ]
+}

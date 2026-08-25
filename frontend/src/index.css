@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --background: 0 0% 100%;
+        --foreground: 222 47% 11%;
+        --card: 0 0% 100%;
+        --card-foreground: 222 47% 11%;
+        --popover: 0 0% 100%;
+        --popover-foreground: 222 47% 11%;
+        --primary: 221 100% 50%;
+        --primary-foreground: 0 0% 100%;
+        --secondary: 214 32% 96%;
+        --secondary-foreground: 222 47% 11%;
+        --muted: 214 32% 96%;
+        --muted-foreground: 215 16% 47%;
+        --accent: 214 32% 96%;
+        --accent-foreground: 222 47% 11%;
+        --destructive: 0 84% 60%;
+        --destructive-foreground: 0 0% 98%;
+        --border: 214 32% 91%;
+        --input: 214 32% 91%;
+        --ring: 221 100% 50%;
+        --radius: 0.75rem;
+    }
+}
+
+@layer base {
+    * {
+        @apply border-border;
+    }
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    ::selection {
+        background: #0052ff;
+        color: #fff;
+    }
+}
+
+/* Lenis smooth scroll */
+html.lenis,
+html.lenis body {
+    height: auto;
+}
+.lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+}
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+/* Editorial marquee */
+@keyframes pa-marquee {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+.animate-pa-marquee {
+    animation: pa-marquee 44s linear infinite;
+}
+.animate-pa-marquee:hover {
+    animation-play-state: paused;
+}
+
+/* Ambient pulse for status dots / play button */
+@keyframes pa-pulse-ring {
+    0% {
+        box-shadow: 0 0 0 0 rgba(0, 82, 255, 0.35);
+    }
+    70% {
+        box-shadow: 0 0 0 14px rgba(0, 82, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 82, 255, 0);
+    }
+}
+.animate-pa-pulse {
+    animation: pa-pulse-ring 2.4s ease-out infinite;
+}
+
+@layer base {
+    [data-debug-wrapper="true"] {
+        display: contents !important;
+    }
+}
