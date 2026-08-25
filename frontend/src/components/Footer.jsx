@@ -9,6 +9,8 @@ const Footer = () => {
         else scrollToId(id);
     };
 
+    if (location.pathname !== "/") return null;
+
     return (
         <footer className="border-t border-white/10 bg-navy-950" data-testid="site-footer">
             <div className="mx-auto max-w-7xl px-4 py-16 sm:px-8 lg:px-16">

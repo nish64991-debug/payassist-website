@@ -68,6 +68,8 @@ const Navbar = () => {
 
     useEffect(() => setOpen(false), [location.pathname]);
 
+    if (location.pathname !== "/") return null;
+
     const go = (id) => {
         setOpen(false);
         if (id === "home") {

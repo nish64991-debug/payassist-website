@@ -6,9 +6,9 @@ const CARDS = [
     {
         id: "z-assist",
         to: "/z-assist",
-        logo: "/assets/zassist-logo.png",
+        logo: "/assets/zassist-logo-tight.png",
         logoAlt: "Z Assist Care logo",
-        logoClass: "h-9 w-auto sm:h-10",
+        logoClass: "h-10 w-auto sm:h-11",
         category: "Device Protection",
         pillClass: "bg-[#22B14C] text-white",
         heading: (
@@ -28,9 +28,9 @@ const CARDS = [
     {
         id: "radsafe",
         to: "/radsafe",
-        logo: "/assets/radsafe-logo.png",
+        logo: "/assets/radsafe-logo-tight.png",
         logoAlt: "RadSafe logo",
-        logoClass: "h-10 w-auto sm:h-11",
+        logoClass: "h-11 w-auto sm:h-12",
         category: "Responsible Usage",
         pillClass: "bg-[#C2A15C] text-white",
         heading: (

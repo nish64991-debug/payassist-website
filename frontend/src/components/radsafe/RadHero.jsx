@@ -4,7 +4,14 @@ import { ArrowLeft, ArrowDown } from "lucide-react";
 import { scrollToId } from "@/components/Navbar";
 
 const RadHero = () => (
-    <section data-testid="radsafe-hero" className="relative overflow-hidden bg-navy-950 pt-[72px]">
+    <section data-testid="radsafe-hero" className="relative overflow-hidden bg-navy-950">
+        <Link
+            to="/"
+            data-testid="radsafe-back-pill"
+            className="absolute left-4 top-5 z-20 flex items-center gap-2 rounded-full border border-white/15 bg-black/30 px-4 py-2 text-xs font-semibold text-white/90 backdrop-blur-md transition-colors duration-300 hover:bg-black/50 sm:left-6 sm:top-6"
+        >
+            <ArrowLeft className="h-3.5 w-3.5" /> Back to PayAssist
+        </Link>
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
             <div className="absolute right-[-10%] top-[-10%] h-[520px] w-[620px] rounded-[100%] bg-[#C2A15C]/[0.13] blur-[140px]" />
             <div className="absolute bottom-[-20%] left-[-8%] h-[380px] w-[480px] rounded-[100%] bg-brand/10 blur-[130px]" />
@@ -15,7 +22,7 @@ const RadHero = () => (
             </svg>
         </div>
 
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-8 lg:min-h-[calc(100svh-72px)] lg:grid-cols-2 lg:gap-16 lg:py-0 lg:px-16">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-8 lg:min-h-svh lg:grid-cols-2 lg:gap-16 lg:py-0 lg:px-16">
             <div>
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -23,8 +30,8 @@ const RadHero = () => (
                     transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                     className="flex items-center gap-4"
                 >
-                    <span className="flex h-16 items-center rounded-2xl bg-white px-5 shadow-xl shadow-black/30">
-                        <img src="/assets/radsafe-logo.png" alt="RadSafe logo" className="h-10 w-auto" />
+                    <span className="flex h-16 items-center rounded-2xl bg-white px-5 shadow-xl shadow-black/30 sm:h-[72px] sm:px-6">
+                        <img src="/assets/radsafe-logo-tight.png" alt="RadSafe logo" className="h-12 w-auto sm:h-14" />
                     </span>
                     <span className="rounded-full border border-[#C2A15C]/30 bg-[#C2A15C]/10 px-4 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[#D8BC7F]">
                         A PayAssist Solution Vertical
@@ -69,13 +76,6 @@ const RadHero = () => (
                     >
                         Explore Benefits <ArrowDown className="h-4 w-4" />
                     </button>
-                    <Link
-                        to="/"
-                        data-testid="radsafe-back-home"
-                        className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
-                    >
-                        <ArrowLeft className="h-4 w-4" /> Back to PayAssist
-                    </Link>
                 </motion.div>
             </div>
 

@@ -121,6 +121,12 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Hero video is now edge-to-edge: desktop/laptop = full viewport width at native 16:9 (left:0→right:viewport, ratio exactly 1.7778 at 1366–2560px, zero side strips, zero overflow); mobile/tablet = full remaining viewport height with object-cover center focal crop (no distortion, no side panels). Removed the rounded/ringed container treatment entirely.
 - Boundary re-verified after the change: heroBottom=0 / brandsTop=0 on video completion — no sliver behind Brands.
 
+## Implemented (2026-08-25, iteration 21 — solution-page branding & navigation)
+- Navbar and Footer now render only on the homepage (early return on other routes) — ZAssist/RadSafe are immersive, ending cleanly after their own CTA.
+- Both solution heroes: pt-[72px] navbar offset removed (hero is the true page start), floating glass "← Back to PayAssist" pill added top-left (verified: returns home, navbar/footer restore), duplicate CTA-row back buttons removed.
+- Logos: auto-trimmed white margins from both PNGs (radsafe-logo-tight.png, zassist-logo-tight.png) and bumped display sizes — RadSafe logo now clearly legible inside the same white tile; Solutions cards updated to tight versions too.
+- Verified: /z-assist and /radsafe have no navbar/footer, pill navigates home, homepage navbar/footer intact, 0px mobile overflow.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).

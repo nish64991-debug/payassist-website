@@ -4,7 +4,14 @@ import { ArrowLeft, ArrowDown } from "lucide-react";
 import { scrollToId } from "@/components/Navbar";
 
 const ZHero = () => (
-    <section data-testid="zassist-hero" className="relative overflow-hidden bg-[#070B09] pt-[72px]">
+    <section data-testid="zassist-hero" className="relative overflow-hidden bg-[#070B09]">
+        <Link
+            to="/"
+            data-testid="zassist-back-pill"
+            className="absolute left-4 top-5 z-20 flex items-center gap-2 rounded-full border border-white/15 bg-black/30 px-4 py-2 text-xs font-semibold text-white/90 backdrop-blur-md transition-colors duration-300 hover:bg-black/50 sm:left-6 sm:top-6"
+        >
+            <ArrowLeft className="h-3.5 w-3.5" /> Back to PayAssist
+        </Link>
         <div className="pointer-events-none absolute inset-0" aria-hidden="true">
             <div className="absolute left-1/2 top-0 h-[420px] w-[820px] -translate-x-1/2 rounded-[100%] bg-[#22B14C]/[0.10] blur-[140px]" />
             <div className="absolute bottom-[-10%] right-[-8%] h-[340px] w-[480px] rounded-[100%] bg-[#22B14C]/[0.06] blur-[130px]" />
@@ -17,8 +24,8 @@ const ZHero = () => (
                 transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
                 className="flex flex-wrap items-center justify-center gap-4"
             >
-                <span className="flex h-16 items-center rounded-2xl bg-white px-5 shadow-xl shadow-black/40">
-                    <img src="/assets/zassist-logo.png" alt="ZAssist Care logo" className="h-10 w-auto" />
+                <span className="flex h-16 items-center rounded-2xl bg-white px-5 shadow-xl shadow-black/40 sm:h-[72px] sm:px-6">
+                    <img src="/assets/zassist-logo-tight.png" alt="ZAssist Care logo" className="h-11 w-auto sm:h-12" />
                 </span>
                 <span className="rounded-full border border-[#22B14C]/30 bg-[#22B14C]/10 px-4 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4ADE80]">
                     A PayAssist Solution Vertical
@@ -62,13 +69,6 @@ const ZHero = () => (
                 >
                     Explore Protection Plans <ArrowDown className="h-4 w-4" />
                 </button>
-                <Link
-                    to="/"
-                    data-testid="zassist-back-home"
-                    className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
-                >
-                    <ArrowLeft className="h-4 w-4" /> Back to PayAssist
-                </Link>
             </motion.div>
 
             <motion.div
