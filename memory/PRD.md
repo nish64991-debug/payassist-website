@@ -32,6 +32,12 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - "Protection Across 50+ Brands" section (id="brands", replaces old Ecosystem marquee): exact supplied copy, centered heading/subtitle, clean white section, infinite CSS-transform marquee of 17 brand cards (white cards, subtle border, soft shadow, edge fades), hover pause + touch pause, no page overflow, slower drift on mobile.
 - Logos: official SVG marks served locally from /public/assets/brands (Simple Icons colored per brand + Haier wordmark). Voltas and O General have no reachable official asset — clean brand-colored typographic placeholders in use, flagged for replacement when official assets are supplied.
 - Hero choreography: video no longer loops — on natural completion it smooth-scrolls once to Brands (only if user is still at the hero; manual scroll always wins); returning to the hero (≥50% visible) restarts the video from 0:00. Verified via synthetic ended-event dispatch (headless browser can't play h264): ended → scrolled to brands; return → currentTime reset to 0.
+- Marquee polish: Havells = navy "HAVELLS" wordmark, O General = red "O GENERAL" wordmark, sequence reordered for balanced color rhythm (no brand changes).
+
+## Implemented (2026-08-25, iteration 4 — Why PayAssist section)
+- Rebuilt id="why" per reference: deep navy background with subtle flowing SVG wave texture + faint brand glows; centered WHY PAYASSIST pill label, exact heading ("Technology is everywhere. Protection should be too.") and exact supporting copy.
+- Exactly six white cards in 2-col × 3-row on desktop (single column on mobile), horizontal icon+text composition, lucide outline icons in soft-blue containers (invert to PayAssist blue on hover), subtle lift/border/glow micro-interactions, exact supplied card copy.
+- Verified desktop/tablet/mobile renders — no overflow, readable at all sizes.
 
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
