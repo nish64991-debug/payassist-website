@@ -24,12 +24,12 @@ const RadHowItWorks = () => (
         <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-8 lg:grid-cols-2 lg:gap-20 lg:px-16">
             <Reveal className="relative order-1">
                 <div className="absolute -inset-5 rounded-[32px] bg-[#C2A15C]/10 blur-2xl" aria-hidden="true" />
-                <div className="relative overflow-hidden rounded-[28px] border border-[#C2A15C]/25 shadow-2xl shadow-black/40">
+                <div className="relative overflow-hidden rounded-[28px] border border-[#C2A15C]/25 bg-[#F5EFE1] shadow-2xl shadow-black/40">
                     <img
-                        src="/assets/radsafe/box-front.jpeg"
-                        alt="RadSafe anti-radiation chip premium packaging"
-                        data-testid="radsafe-how-image"
-                        className="aspect-square w-full object-cover"
+                        src="/assets/radsafe/ad-poster.png"
+                        alt="RadSafe anti-radiation chip advertisement poster — key benefits and product details"
+                        data-testid="radsafe-ad-poster"
+                        className="block h-auto w-full"
                     />
                 </div>
                 <p className="mt-6 text-center font-mono text-[11px] uppercase tracking-[0.3em] text-[#D8BC7F]">

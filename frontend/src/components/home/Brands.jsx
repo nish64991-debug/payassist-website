@@ -26,7 +26,7 @@ const slug = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 const BrandCard = ({ brand }) => (
     <div
         data-testid={`brand-card-${slug(brand.name)}`}
-        className="flex h-[72px] w-[148px] shrink-0 items-center justify-center rounded-xl border border-slate-200/80 bg-white px-6 shadow-[0_2px_10px_-4px_rgba(15,23,42,0.08)] sm:h-[84px] sm:w-[180px] lg:h-[96px] lg:w-[208px]"
+        className="flex h-[72px] w-[148px] shrink-0 items-center justify-center rounded-xl border border-slate-200/80 bg-white px-6 shadow-[0_2px_10px_-4px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-brand/40 hover:shadow-[0_12px_26px_-8px_rgba(0,82,255,0.22)] sm:h-[84px] sm:w-[180px] lg:h-[96px] lg:w-[208px]"
     >
         {brand.logo ? (
             <img
@@ -49,7 +49,7 @@ const Brands = () => {
     const [touchPaused, setTouchPaused] = useState(false);
 
     return (
-        <section id="brands" data-testid="brands-section" className="bg-white py-16 sm:py-20 lg:py-24">
+        <section id="brands" data-testid="brands-section" className="bg-[#F1F6FC] py-16 sm:py-20 lg:py-24">
             <Reveal className="mx-auto max-w-7xl px-4 text-center sm:px-8 lg:px-16">
                 <h2
                     data-testid="brands-heading"
@@ -68,8 +68,8 @@ const Brands = () => {
                 onTouchStart={() => setTouchPaused(true)}
                 onTouchEnd={() => setTouchPaused(false)}
             >
-                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-white to-transparent sm:w-24 lg:w-32" />
-                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-white to-transparent sm:w-24 lg:w-32" />
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 bg-gradient-to-r from-[#F1F6FC] to-transparent sm:w-24 lg:w-32" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 bg-gradient-to-l from-[#F1F6FC] to-transparent sm:w-24 lg:w-32" />
                 <div
                     className="animate-pa-marquee flex w-max items-center gap-4 pr-4 sm:gap-5 sm:pr-5 lg:gap-6 lg:pr-6"
                     style={touchPaused ? { animationPlayState: "paused" } : undefined}

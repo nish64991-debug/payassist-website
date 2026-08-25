@@ -100,6 +100,14 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 ## Update (2026-08-25, iteration 16 — chip hover interaction)
 - Exploded chip view now spreads its six layers further apart on hover (tap-toggle on touch) with a smooth 0.6s settle, caption switches between "hover to expand" / "release to settle"; entrance stagger preserved; stack re-centered in its frame. Verified rest + hover states and zero overflow.
 
+## Implemented (2026-08-25, iteration 17 — combined final corrections)
+- PayAssist hero: desktop bottom-crop fixed — video now height-driven (h=100svh−72px, w auto, max-w-full, object-contain), full 16:9 composition visible at 1920/1440; mobile treatment unchanged.
+- RadSafe hero: product image replaced with supplied radsafe-film.mp4 (1280x720, 8s) + poster fallback, natural aspect in gold frame, no crop any viewport.
+- RadSafe How It Works: box image replaced with supplied ad-poster.png (1122x1402) at natural ratio; cream frame matches poster background.
+- Brands section: background changed to cool screen-tint #F1F6FC (fades matched), brand cards got visible hover (lift + blue border + deeper shadow).
+- Global navbar: hides smoothly on scroll down (>96px, 6px delta hysteresis), returns on scroll up; wired to both window and Lenis scroll events; never hides while mobile menu open; entrance animation converted from framer to CSS (framer inline transform conflict resolved). Verified with real wheel input down/up.
+- Independently verified by troubleshoot_agent (no testing_agent exists in this environment): all five corrections sound, zero overflow 320–2560px, no regressions.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).

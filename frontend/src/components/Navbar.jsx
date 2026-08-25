@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowUpRight } from "lucide-react";
@@ -28,15 +28,42 @@ const NAV_LINKS = [
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
+    const [hidden, setHidden] = useState(false);
     const [open, setOpen] = useState(false);
+    const [mounted, setMounted] = useState(false);
+    const lastY = useRef(0);
     const location = useLocation();
     const navigate = useNavigate();
 
     useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 16);
+        const handler = (y) => {
+            setScrolled(y > 16);
+            if (open) {
+                setHidden(false);
+            } else if (y < 96) {
+                setHidden(false);
+            } else if (y > lastY.current + 6) {
+                setHidden(true);
+            } else if (y < lastY.current - 6) {
+                setHidden(false);
+            }
+            lastY.current = y;
+        };
+        const onScroll = () => handler(window.scrollY);
         onScroll();
         window.addEventListener("scroll", onScroll, { passive: true });
-        return () => window.removeEventListener("scroll", onScroll);
+        const lenis = window.__lenis;
+        const onLenis = (e) => handler(e.scroll);
+        if (lenis) lenis.on("scroll", onLenis);
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            if (lenis) lenis.off("scroll", onLenis);
+        };
+    }, [open]);
+
+    useEffect(() => {
+        const raf = requestAnimationFrame(() => setMounted(true));
+        return () => cancelAnimationFrame(raf);
     }, []);
 
     useEffect(() => setOpen(false), [location.pathname]);
@@ -57,12 +84,11 @@ const Navbar = () => {
     };
 
     return (
-        <motion.header
-            initial={{ y: -72, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+        <header
             data-testid="site-navbar"
-            className={`fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-md transition-shadow duration-300 ${
+            className={`fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-500 ease-out ${
+                !mounted || (hidden && !open) ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
+            } ${
                 scrolled ? "shadow-[0_1px_0_0_rgba(15,23,42,0.08),0_8px_24px_-12px_rgba(15,23,42,0.12)]" : ""
             }`}
         >
@@ -145,7 +171,7 @@ const Navbar = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </motion.header>
+        </header>
     );
 };
 

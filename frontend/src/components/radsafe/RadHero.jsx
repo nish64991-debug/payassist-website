@@ -87,13 +87,17 @@ const RadHero = () => (
             >
                 <div className="absolute -inset-6 rounded-[36px] bg-[#C2A15C]/10 blur-2xl" aria-hidden="true" />
                 <div className="relative overflow-hidden rounded-[28px] border border-[#C2A15C]/25 shadow-2xl shadow-black/50">
-                    <img
-                        src="/assets/radsafe/phone-chip.jpeg"
-                        alt="RadSafe anti-radiation chip applied to a smartphone, with premium RadSafe packaging"
-                        data-testid="radsafe-hero-image"
-                        className="h-[340px] w-full object-cover object-center sm:h-[440px] lg:h-[520px]"
+                    <video
+                        src="/assets/radsafe/radsafe-film.mp4"
+                        poster="/assets/radsafe/radsafe-film-poster.jpg"
+                        data-testid="radsafe-hero-video"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                        className="block h-auto w-full"
                     />
-                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-navy-950/70 to-transparent" aria-hidden="true" />
                 </div>
             </motion.div>
         </div>
