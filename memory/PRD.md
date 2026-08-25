@@ -51,6 +51,12 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Subtle ecosystem tie-in: footnote badges "Z Assist · Device Protection" (green) and "RadSafe · Responsible Usage" (gold).
 - Verified desktop beam/node animation end-state and mobile vertical layout — compact, no overflow.
 
+## Implemented (2026-08-25, iteration 7 — Testimonials / Trust section)
+- About/People section removed from homepage per instruction: flow is now Hero → Brands → Why PayAssist → Our Solutions → Our Approach → Testimonials → Contact. Nav center link "About" retargeted to "Trust" (#testimonials); footer "Team" link likewise.
+- Rebuilt id="testimonials" on white: TRUST pill, "Trusted by People. Built for Real Life." + exact supporting line; 6 clean white cards (quote mark, neutral no-star/no-verified presentation, initials avatar, name, descriptor, understated Z Assist/RadSafe dot-label).
+- Profiles: Priya Sharma (Z Assist), Ramesh Sharma (RadSafe), Meera Krishnan (retail partner), Pramod Kumar Singh (Z Assist AC service), Ananya Iyer (RadSafe), Vikram Malhotra (Z Assist laptop) — all flagged on-page as illustrative placeholders pending approved customer stories.
+- Verified desktop 3-col and mobile single-column renders; about section confirmed removed.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).

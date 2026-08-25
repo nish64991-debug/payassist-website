@@ -23,7 +23,7 @@ const NAV_LINKS = [
     { id: "home", label: "Home" },
     { id: "why", label: "Why PayAssist" },
     { id: "solutions", label: "Solutions" },
-    { id: "about", label: "About" },
+    { id: "testimonials", label: "Trust" },
 ];
 
 const Navbar = () => {

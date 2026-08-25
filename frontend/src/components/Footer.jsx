@@ -39,7 +39,7 @@ const Footer = () => {
                                 ["why", "Why PayAssist"],
                                 ["approach", "Our Approach"],
                                 ["solutions", "Solutions"],
-                                ["about", "Team"],
+                                ["testimonials", "Trust"],
                                 ["contact", "Contact"],
                             ].map(([id, label]) => (
                                 <li key={id}>
