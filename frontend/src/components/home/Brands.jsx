@@ -3,22 +3,22 @@ import Reveal from "@/components/Reveal";
 
 const BRANDS = [
     { name: "Voltas", wordmark: "VOLTAS", wordClass: "font-display text-lg font-extrabold italic tracking-tight text-[#1B6AC9] lg:text-xl" },
-    { name: "Haier", logo: "/assets/brands/haier.svg", kind: "mark" },
-    { name: "Oppo", logo: "/assets/brands/oppo.svg", kind: "mark" },
     { name: "Samsung", logo: "/assets/brands/samsung.svg", kind: "mark" },
-    { name: "Apple", logo: "/assets/brands/apple.svg", kind: "glyph" },
-    { name: "Mi", logo: "/assets/brands/xiaomi.svg", kind: "glyph" },
     { name: "OnePlus", logo: "/assets/brands/oneplus.svg", kind: "glyph" },
+    { name: "Apple", logo: "/assets/brands/apple.svg", kind: "glyph" },
+    { name: "Oppo", logo: "/assets/brands/oppo.svg", kind: "mark" },
+    { name: "Hitachi", logo: "/assets/brands/hitachi.svg", kind: "mark" },
     { name: "Google", logo: "/assets/brands/google.svg", kind: "glyph" },
+    { name: "Mi", logo: "/assets/brands/xiaomi.svg", kind: "glyph" },
     { name: "Sony", logo: "/assets/brands/sony.svg", kind: "mark" },
-    { name: "Dell", logo: "/assets/brands/dell.svg", kind: "glyph" },
     { name: "Lenovo", logo: "/assets/brands/lenovo.svg", kind: "mark" },
+    { name: "Dell", logo: "/assets/brands/dell.svg", kind: "glyph" },
+    { name: "Haier", logo: "/assets/brands/haier.svg", kind: "mark" },
+    { name: "Mitsubishi", logo: "/assets/brands/mitsubishi.svg", kind: "glyph" },
     { name: "HP", logo: "/assets/brands/hp.svg", kind: "glyph" },
     { name: "Asus", logo: "/assets/brands/asus.svg", kind: "mark" },
-    { name: "Hitachi", logo: "/assets/brands/hitachi.svg", kind: "mark" },
-    { name: "Havells", logo: "/assets/brands/havells.svg", kind: "mark" },
-    { name: "Mitsubishi", logo: "/assets/brands/mitsubishi.svg", kind: "glyph" },
-    { name: "O General", wordmark: "GENERAL", wordClass: "font-display text-lg font-extrabold tracking-tight text-[#D8232A] lg:text-xl" },
+    { name: "O General", wordmark: "O GENERAL", wordClass: "font-display text-lg font-extrabold tracking-tight text-[#D8232A] lg:text-xl" },
+    { name: "Havells", wordmark: "HAVELLS", wordClass: "font-display text-lg font-extrabold tracking-tight text-[#0A2A5E] lg:text-xl" },
 ];
 
 const slug = (name) => name.toLowerCase().replace(/[^a-z0-9]+/g, "-");
