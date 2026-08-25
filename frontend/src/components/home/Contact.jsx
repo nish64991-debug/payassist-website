@@ -4,7 +4,8 @@ import Reveal from "@/components/Reveal";
 
 const EMAIL = "support.zassistcare@payassist.in";
 const ACCESS_KEY = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
-const PRIMARY_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
+const RELAY_ENDPOINT = `${process.env.REACT_APP_BACKEND_URL}/api/contact`;
+const DIRECT_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
 
 const INTERESTS = ["Z Assist", "RadSafe", "Partnership", "General Enquiry", "Other"];
 
@@ -29,6 +30,7 @@ const Contact = () => {
     const [form, setForm] = useState(INITIAL);
     const [errors, setErrors] = useState({});
     const [status, setStatus] = useState("idle");
+    const [errorDetail, setErrorDetail] = useState("");
 
     const set = (key) => (e) => {
         setForm({ ...form, [key]: e.target.value });
@@ -42,6 +44,7 @@ const Contact = () => {
         if (Object.keys(errs).length > 0) return;
 
         setStatus("submitting");
+        setErrorDetail("");
         const payload = {
             name: form.name.trim(),
             email: form.email.trim(),
@@ -50,8 +53,19 @@ const Contact = () => {
             interest: form.interest,
             message: form.message.trim(),
         };
-        try {
-            const res = await fetch(PRIMARY_ENDPOINT, {
+
+        const viaRelay = async () => {
+            const res = await fetch(RELAY_ENDPOINT, {
+                method: "POST",
+                headers: { "Content-Type": "application/json", Accept: "application/json" },
+                body: JSON.stringify(payload),
+            });
+            const result = await res.json();
+            if (!res.ok || !result.success) throw new Error(result.message || "relay rejected");
+        };
+
+        const viaDirect = async () => {
+            const res = await fetch(DIRECT_ENDPOINT, {
                 method: "POST",
                 headers: { "Content-Type": "application/json", Accept: "application/json" },
                 body: JSON.stringify({
@@ -62,31 +76,38 @@ const Contact = () => {
                 }),
             });
             const result = await res.json();
-            if (!res.ok || String(result.success) !== "true") throw new Error(result.message || "Submission failed");
-            setStatus("success");
-            setForm(INITIAL);
-        } catch (primaryErr) {
-            console.warn("Primary delivery failed, trying fallback:", primaryErr);
+            if (!res.ok || String(result.success) !== "true") throw new Error(result.message || "direct rejected");
+        };
+
+        const viaWeb3 = async () => {
+            const fd = new FormData();
+            fd.append("access_key", ACCESS_KEY || "");
+            fd.append("subject", "New PayAssist Website Enquiry");
+            fd.append("from_name", "PayAssist Website");
+            Object.entries(payload).forEach(([k, v]) => fd.append(k, v));
+            const res = await fetch("https://api.web3forms.com/submit", {
+                method: "POST",
+                headers: { Accept: "application/json" },
+                body: fd,
+            });
+            const result = await res.json();
+            if (!res.ok || !result.success) throw new Error(result.message || "web3forms rejected");
+        };
+
+        const attempts = [];
+        for (const [label, fn] of [["relay", viaRelay], ["direct", viaDirect], ["web3forms", viaWeb3]]) {
             try {
-                const fd = new FormData();
-                fd.append("access_key", ACCESS_KEY || "");
-                fd.append("subject", "New PayAssist Website Enquiry");
-                fd.append("from_name", "PayAssist Website");
-                Object.entries(payload).forEach(([k, v]) => fd.append(k, v));
-                const res = await fetch("https://api.web3forms.com/submit", {
-                    method: "POST",
-                    headers: { Accept: "application/json" },
-                    body: fd,
-                });
-                const result = await res.json();
-                if (!res.ok || !result.success) throw new Error(result.message || "Fallback failed");
+                await fn();
                 setStatus("success");
                 setForm(INITIAL);
-            } catch (fallbackErr) {
-                console.error("Contact delivery failed:", fallbackErr);
-                setStatus("error");
+                return;
+            } catch (err) {
+                console.warn(`Contact delivery via ${label} failed:`, err);
+                attempts.push(`${label}: ${err.message || "network blocked"}`);
             }
         }
+        setErrorDetail(attempts.join(" · "));
+        setStatus("error");
     };
 
     return (
@@ -294,6 +315,11 @@ const Contact = () => {
                                                 </a>
                                                 .
                                             </span>
+                                        </p>
+                                    )}
+                                    {status === "error" && errorDetail && (
+                                        <p className="mt-2 font-mono text-[10px] leading-relaxed text-slate-400" data-testid="contact-error-detail">
+                                            {errorDetail}
                                         </p>
                                     )}
                                 </form>

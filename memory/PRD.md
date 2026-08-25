@@ -78,6 +78,11 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Delivery order swapped: FormSubmit (proven activated, delivered test email user received) is now PRIMARY; Web3Forms (key 9c0e17c1-…) is the automatic fallback. Errors logged to console for future diagnosis.
 - Re-verified via UI with the user's exact Gmail address: success state, delivery confirmed.
 
+## Update (2026-08-25, iteration 12 — bulletproof same-origin relay via managed Resend)
+- User still saw errors from their browser (both third-party services blocked on their network — likely ad-blocker/localhost context). FormSubmit also proved inconsistent server-side (activation heuristics flip per request fingerprint).
+- Final architecture: POST /api/contact on the existing template backend relays via Emergent-managed Resend proxy (EMERGENT_EMAIL_KEY + EMAIL_FROM_NAME="PayAssist" in backend/.env; httpx added). Fixed recipient support.zassistcare@payassist.in, fixed subject, server-side escaped HTML template, visitor email as Reply-To, honeypot + 5/hour per-IP rate limit. Frontend tries relay → direct FormSubmit → Web3Forms as layered fallbacks; error banner shows per-path technical detail.
+- VERIFIED: curl to /api/contact → {"success":true}; full UI submission with user's Gmail → success screen. Works identically on localhost/preview/any network since it goes to the site's own domain.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).
