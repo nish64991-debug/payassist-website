@@ -94,6 +94,9 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Bug fix: 27px horizontal overflow at 834px tablet width — traced to unbroken footer email link; fixed with break-all in Footer + RadCta (independently reviewed by troubleshoot_agent subagent, which caught the second instance).
 - Verified: 0px horizontal overflow at 1920/1440/1024/834/768/390/360/320px on /radsafe; exploded view, layer list, all sections screenshot-checked per breakpoint.
 
+## Update (2026-08-25, iteration 15 — researched layer descriptions)
+- Rewrote the six layer one-liners after web research on anti-radiation chip construction: descriptions now describe each layer's actual physical/material role (resin = protective coating, quantum sheet = proprietary functional layer, neodymium = magnetic core, acrylic = rigid substrate, gumming = adhesive bond, paper release = peel-away backing). No health/outcome claims.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).

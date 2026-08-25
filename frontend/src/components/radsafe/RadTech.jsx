@@ -2,12 +2,12 @@ import { motion } from "framer-motion";
 import Reveal from "@/components/Reveal";
 
 const LAYERS = [
-    { n: "01", name: "Resin for Safety", note: "Protective outer resin surface" },
-    { n: "02", name: "Quantum Sheet", note: "Engineered quantum sheet layer" },
-    { n: "03", name: "5000 Power Neodymium", note: "High-density neodymium core" },
-    { n: "04", name: "Acrylic", note: "Structural acrylic layer" },
-    { n: "05", name: "Gumming", note: "Secure adhesive bonding layer" },
-    { n: "06", name: "Paper Release", note: "Peel-away paper release backing" },
+    { n: "01", name: "Resin for Safety", note: "Sealed resin coating that protects the inner layers from daily wear and handling" },
+    { n: "02", name: "Quantum Sheet", note: "The chip's proprietary functional layer, engineered for its protective role" },
+    { n: "03", name: "5000 Power Neodymium", note: "A high-density neodymium magnetic layer at the heart of the chip" },
+    { n: "04", name: "Acrylic", note: "A rigid acrylic substrate that gives the chip its slim, durable structure" },
+    { n: "05", name: "Gumming", note: "A secure adhesive layer that bonds the chip firmly to your device" },
+    { n: "06", name: "Paper Release", note: "A peel-away backing that keeps the adhesive protected until application" },
 ];
 
 const PLATE_STYLES = [
