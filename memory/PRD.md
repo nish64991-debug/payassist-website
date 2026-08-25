@@ -45,6 +45,12 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Cards match reference composition: white logo tile top-left (official zassist-logo.png / radsafe-logo.png, downloaded to /public/assets), category pill top-right (green DEVICE PROTECTION / gold RESPONSIBLE USAGE), big white heading, description, bottom-left colored CTA with arrow micro-motion; hover = lift + glow brighten + arrow shift.
 - Verified: desktop side-by-side matches reference, mobile stacks vertically with single-line pills, card click navigates to /z-assist and back.
 
+## Implemented (2026-08-25, iteration 6 — Our Approach section)
+- Rebuilt id="approach" as compact dark "visual chapter": navy-950 with faint grid + soft brand glow; centered OUR APPROACH pill, "Our Approach" heading, mono "Understand → Build → Support" line.
+- Three-stage connected journey: desktop = horizontal glowing beam that draws left→right with nodes igniting sequentially (01 Understand, 02 Build, 03 Support, staggered reveal); mobile = vertical sequence with animated gradient connectors. Exact supplied copy, no extra text.
+- Subtle ecosystem tie-in: footnote badges "Z Assist · Device Protection" (green) and "RadSafe · Responsible Usage" (gold).
+- Verified desktop beam/node animation end-state and mobile vertical layout — compact, no overflow.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).
