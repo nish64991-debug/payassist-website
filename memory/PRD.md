@@ -57,6 +57,12 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Profiles: Priya Sharma (Z Assist), Ramesh Sharma (RadSafe), Meera Krishnan (retail partner), Pramod Kumar Singh (Z Assist AC service), Ananya Iyer (RadSafe), Vikram Malhotra (Z Assist laptop) — all flagged on-page as illustrative placeholders pending approved customer stories.
 - Verified desktop 3-col and mobile single-column renders; about section confirmed removed.
 
+## Implemented (2026-08-25, iteration 8 — Contact section)
+- Rebuilt id="contact" as distinctive graphite section (#14181F, steel-blue ambient glows): two-column desktop (headline "Let's Build a More Protected Future." + supporting copy + clickable mailto card support.zassistcare@payassist.in | white form card), stacked mobile.
+- Functional form: Name/Email/Phone/Company/Interest dropdown (Z Assist, RadSafe, Partnership, General Enquiry, Other)/Message; custom inline validation (no browser popups); Sending…/success/error states; honeypot; submits to Web3Forms API with subject "New PayAssist Website Enquiry", from_name "PayAssist Website", visitor email as Reply-To.
+- Web3Forms access key stored in REACT_APP_WEB3FORMS_ACCESS_KEY (/app/frontend/.env). Footer email corrected to support.zassistcare@payassist.in.
+- PENDING VERIFICATION: end-to-end email delivery could NOT be verified from this preview pod — Cloudflare issues a managed challenge for datacenter IPs at api.web3forms.com (blocks both the headless browser and curl; normal visitor browsers are unaffected). User also had not yet confirmed the Web3Forms mailbox verification email at time of build. Action needed: verify mailbox + send one test from a normal browser.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).
