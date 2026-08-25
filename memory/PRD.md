@@ -89,6 +89,11 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Assets: user-supplied RadSafe imagery in /public/assets/radsafe/ (phone-chip.jpeg cropped from poster, box-front.jpeg cropped from packaging render); poster health claims deliberately NOT reproduced.
 - Verified: real user flow Our Solutions → RadSafe card → /radsafe; desktop hero/benefits/how-it-works; mobile (390px) all sections stack cleanly with no overflow.
 
+## Implemented (2026-08-25, iteration 14 — RadSafe 6-Layer Technology section + responsiveness fix)
+- New RadTech section (Hero → Tech → Benefits → How It Works → CTA): "Advanced 6-Layer Protection" with CSS 3D exploded chip view (six plates: resin gloss, gold quantum grid, dark neodymium with real chip photo on top plate, acrylic glass, gumming, paper-release white) + dashed RF field rings; numbered layer list right on desktop, vertical below visual on mobile. Exact layer names/order from supplied poster; no invented layers, no health claims.
+- Bug fix: 27px horizontal overflow at 834px tablet width — traced to unbroken footer email link; fixed with break-all in Footer + RadCta (independently reviewed by troubleshoot_agent subagent, which caught the second instance).
+- Verified: 0px horizontal overflow at 1920/1440/1024/834/768/390/360/320px on /radsafe; exploded view, layer list, all sections screenshot-checked per breakpoint.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).

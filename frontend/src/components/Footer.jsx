@@ -73,7 +73,7 @@ const Footer = () => {
                         <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-slate-500">Contact</p>
                         <ul className="mt-5 space-y-3 text-sm">
                             <li>
-                                <a href="mailto:support.zassistcare@payassist.in" data-testid="footer-email-link" className="text-slate-400 transition-colors hover:text-white">
+                                <a href="mailto:support.zassistcare@payassist.in" data-testid="footer-email-link" className="break-all text-slate-400 transition-colors hover:text-white">
                                     support.zassistcare@payassist.in
                                 </a>
                             </li>

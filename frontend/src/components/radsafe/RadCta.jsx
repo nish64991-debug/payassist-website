@@ -33,7 +33,7 @@ const RadCta = () => {
                         <a
                             href="mailto:support.zassistcare@payassist.in?subject=RadSafe%20Enquiry"
                             data-testid="radsafe-email-link"
-                            className="flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
+                            className="flex items-center gap-2 break-all rounded-full border border-white/20 bg-white/5 px-8 py-4 text-sm font-semibold text-white transition-all duration-300 hover:bg-white/10"
                         >
                             <Mail className="h-4 w-4" /> support.zassistcare@payassist.in
                         </a>
