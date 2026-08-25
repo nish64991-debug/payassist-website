@@ -4,7 +4,7 @@ import Reveal from "@/components/Reveal";
 
 const EMAIL = "support.zassistcare@payassist.in";
 const ACCESS_KEY = process.env.REACT_APP_WEB3FORMS_ACCESS_KEY;
-const FALLBACK_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
+const PRIMARY_ENDPOINT = `https://formsubmit.co/ajax/${EMAIL}`;
 
 const INTERESTS = ["Z Assist", "RadSafe", "Partnership", "General Enquiry", "Other"];
 
@@ -51,37 +51,39 @@ const Contact = () => {
             message: form.message.trim(),
         };
         try {
-            const fd = new FormData();
-            fd.append("access_key", ACCESS_KEY || "");
-            fd.append("subject", "New PayAssist Website Enquiry");
-            fd.append("from_name", "PayAssist Website");
-            Object.entries(payload).forEach(([k, v]) => fd.append(k, v));
-            const res = await fetch("https://api.web3forms.com/submit", {
+            const res = await fetch(PRIMARY_ENDPOINT, {
                 method: "POST",
-                headers: { Accept: "application/json" },
-                body: fd,
+                headers: { "Content-Type": "application/json", Accept: "application/json" },
+                body: JSON.stringify({
+                    ...payload,
+                    _subject: "New PayAssist Website Enquiry",
+                    _replyto: payload.email,
+                    _template: "table",
+                }),
             });
             const result = await res.json();
-            if (!res.ok || !result.success) throw new Error(result.message || "Submission failed");
+            if (!res.ok || String(result.success) !== "true") throw new Error(result.message || "Submission failed");
             setStatus("success");
             setForm(INITIAL);
-        } catch {
+        } catch (primaryErr) {
+            console.warn("Primary delivery failed, trying fallback:", primaryErr);
             try {
-                const res = await fetch(FALLBACK_ENDPOINT, {
+                const fd = new FormData();
+                fd.append("access_key", ACCESS_KEY || "");
+                fd.append("subject", "New PayAssist Website Enquiry");
+                fd.append("from_name", "PayAssist Website");
+                Object.entries(payload).forEach(([k, v]) => fd.append(k, v));
+                const res = await fetch("https://api.web3forms.com/submit", {
                     method: "POST",
-                    headers: { "Content-Type": "application/json", Accept: "application/json" },
-                    body: JSON.stringify({
-                        ...payload,
-                        _subject: "New PayAssist Website Enquiry",
-                        _replyto: payload.email,
-                        _template: "table",
-                    }),
+                    headers: { Accept: "application/json" },
+                    body: fd,
                 });
                 const result = await res.json();
-                if (!res.ok || String(result.success) !== "true") throw new Error(result.message || "Fallback failed");
+                if (!res.ok || !result.success) throw new Error(result.message || "Fallback failed");
                 setStatus("success");
                 setForm(INITIAL);
-            } catch {
+            } catch (fallbackErr) {
+                console.error("Contact delivery failed:", fallbackErr);
                 setStatus("error");
             }
         }

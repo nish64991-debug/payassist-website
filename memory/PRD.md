@@ -73,6 +73,11 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - VERIFIED WORKING: full UI submission test showed the success state; FormSubmit probe returned "The form was submitted successfully" — the mailbox is activated and a real test enquiry ("Dual-path delivery test", RadSafe interest) was delivered to support.zassistcare@payassist.in.
 - Note: api.web3forms.com remains Cloudflare-challenged from this preview pod's IP, so the primary path can't be exercised here — but the fallback guarantees delivery regardless, and Web3Forms will serve visitors on networks where it's reachable.
 
+## Update (2026-08-25, iteration 11 — delivery order swapped after user-reported failure)
+- User reported error when submitting with nishantgaurav2208@gmail.com (Web3Forms-primary path). Root cause on user network undetermined (likely browser extension/ad-blocker blocking api.web3forms.com, since pod-side reproduction with the same email succeeded via fallback).
+- Delivery order swapped: FormSubmit (proven activated, delivered test email user received) is now PRIMARY; Web3Forms (key 9c0e17c1-…) is the automatic fallback. Errors logged to console for future diagnosis.
+- Re-verified via UI with the user's exact Gmail address: success state, delivery confirmed.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).
