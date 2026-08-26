@@ -218,19 +218,58 @@ frontend:
       - working: true
         agent: "testing"
         comment: "Hero + Navbar REDESIGN tested (2026-08-26). Comprehensive testing across 7 viewports (Desktop: 1440x900, 1280x800; Tablet: 768x1024; Phones: 430x932, 390x844, 375x812, 360x740). ALL 6 ACCEPTANCE CRITERIA PASSED ON ALL SIZES: (1) No horizontal overflow - docScrollWidth === viewport width on all 7 viewports. (2) Navbar is dark navy - rgba(11, 19, 43, 0.95) with premium texture (gradients + blur effects) on all sizes. PayAssist logo in white rounded chip (rounded-xl bg-white px-3.5 py-2) clearly visible. Contact Us button is WHITE pill (bg-white) with dark navy text (rgb(11, 19, 43)) with strong contrast. Hamburger icon white on mobile. (3) Tagline visible on ALL sizes (desktop AND mobile) with both lines readable: 'Technology We Trust.' in dark navy (text-navy-900) and 'Protection We Need.' in blue (text-brand), PayAssist pill present. No clipping or overflow. (4) Hero video shows COMPLETE 16:9 composition - aspect ratio 1.77-1.78 on all sizes, object-contain, no cropping of sides/top/bottom, not distorted. Video dimensions measured: Desktop 1440x900 (1088x612), Tablet 768x1024 (720x405), Phone 390x844 (358x201). (5) Hero background is light off-white - rgb(241, 246, 252) on all sizes, seamless with Brands section. (6) Contact Us button clearly visible with strong contrast on dark navbar. MOBILE MENU TEST (390x844): Hamburger opens menu successfully, panel is DARK navy (rgb(11, 19, 43)) with readable white link text, Z Assist and RadSafe pills visible with colored borders. REGRESSION TESTS PASSED: /z-assist and /radsafe load correctly, visually UNCHANGED, navbar does NOT render on these routes (correct behavior). Zero console errors. All measurements and visual verification confirm redesign is production-ready and meets all acceptance criteria."
+      - working: true
+        agent: "testing"
+        comment: "THREE SPECIFIC DESIGN CHANGES tested (2026-08-26). Tested across 3 viewports (Desktop: 1440x900, Tablet: 768x1024, Mobile: 390x844). ALL THREE CHANGES VERIFIED: CHANGE 1 (Hero Title Color) - PASS: Both lines 'Technology We Trust.' and 'Protection We Need.' are now the SAME dark navy color rgb(11, 19, 43) on all viewports. 'Protection We Need.' is NO LONGER bright blue - confirmed dark navy as required. CHANGE 2 (Why PayAssist Cards) - PASS: Exactly 4 cards present with correct titles: 'What We Own Deserves Protection', 'Protection Should Be Simple', 'Built Around Real-Life Needs', 'One Brand. Multiple Dimensions of Protection.' Removed titles 'We Depend on Technology' and 'Technology Brings New Concerns' are GONE. Grid layout correct: 2x2 on desktop/tablet (2 columns), single column on mobile. No empty/broken grid cells, no awkward gaps. CHANGE 3 (Testimonials Layout) - PASS: All 6 testimonial cards present (none removed). Grid layout correct: Desktop 2 columns (436px 436px), Tablet 2 columns (340px 340px), Mobile 1 column (358px). Cards balanced, readable, no weird stretching. GLOBAL CHECKS - PASS: No horizontal overflow on any viewport (docWidth === viewportWidth). No JavaScript console errors. No text overlap, no cropped content, no broken layout. Screenshots captured for Why cards and Testimonials on all viewports. All three design changes are production-ready."
+
+  - task: "Hero title color change - Both lines dark navy"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/home/Hero.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Hero title color change verified (2026-08-26). Both lines 'Technology We Trust.' and 'Protection We Need.' now have the SAME dark navy color rgb(11, 19, 43). Previously 'Protection We Need.' was bright blue (text-brand), now it's dark navy (text-navy-900) as required. Tested on Desktop (1440x900), Tablet (768x1024), and Mobile (390x844). Computed color confirmed: rgb(11, 19, 43) on all viewports for both lines."
+
+  - task: "Why PayAssist section - Reduced to 4 cards"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/home/WhyPayAssist.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Why PayAssist section verified (2026-08-26). Exactly 4 cards present (reduced from 6). Card titles match expected: 'What We Own Deserves Protection', 'Protection Should Be Simple', 'Built Around Real-Life Needs', 'One Brand. Multiple Dimensions of Protection.' Removed titles 'We Depend on Technology' and 'Technology Brings New Concerns' are GONE. Grid layout correct: 2x2 on desktop/tablet (md:grid-cols-2), single column on mobile. Desktop grid: 452px 452px, Tablet: 340px 340px, Mobile: 358px (single column). No empty/broken grid cells, no awkward gaps. Cards look balanced and premium. Screenshots captured on all viewports."
+
+  - task: "Testimonials section - 2-column layout on desktop/tablet"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/home/Testimonials.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Testimonials section layout verified (2026-08-26). All 6 testimonial cards present (none removed as required). Grid layout correct: Desktop (1440x900) shows 2 columns (436px 436px), Tablet (768x1024) shows 2 columns (340px 340px), Mobile (390x844) shows 1 column (358px). Layout is md:grid-cols-2 which creates 3 rows of 2 cards on desktop/tablet, and single column on mobile for readability. Cards are balanced, text is readable, no card is stretched weirdly. Premium appearance maintained. Screenshots captured on all viewports."
 
 metadata:
   created_by: "testing_agent"
-  version: "1.2"
-  test_sequence: 3
+  version: "1.3"
+  test_sequence: 4
   run_ui: true
   test_date: "2026-08-26"
 
 test_plan:
   current_focus:
-    - "Hero + Navbar redesign testing completed - all acceptance criteria passed"
+    - "Three specific design changes tested and verified - all passing"
   stuck_tasks: []
-  test_all: true
+  test_all: false
   test_priority: "high_first"
 
 agent_communication:
@@ -242,3 +281,5 @@ agent_communication:
     message: "Hero section mobile-only change verified (2026-08-26). Tested NEW mobile composition (<768px) with premium tagline above complete 16:9 video. ALL 6 VIEWPORTS PASSED (4 phones, 1 tablet, 1 desktop). PHONES: Tagline visible with correct text, video shows COMPLETE 16:9 (aspect 1.78, object-fit: contain, NO cropping), no horizontal overflow, no overlap. TABLET & DESKTOP: UNCHANGED as required (tagline hidden, video behavior preserved). No console errors. Implementation is production-ready and meets all acceptance criteria."
   - agent: "testing"
     message: "Hero + Navbar REDESIGN testing completed (2026-08-26). Tested across 7 viewports (Desktop: 1440x900, 1280x800; Tablet: 768x1024; Phones: 430x932, 390x844, 375x812, 360x740). ALL 6 ACCEPTANCE CRITERIA PASSED ON ALL SIZES: (1) No horizontal overflow anywhere. (2) Navbar is dark navy rgba(11,19,43,0.95) with premium texture, PayAssist logo in white rounded chip, Contact Us WHITE pill with dark navy text, hamburger white on mobile. (3) Tagline visible on ALL sizes with both lines readable (Technology We Trust dark navy, Protection We Need blue), PayAssist pill present. (4) Video shows COMPLETE 16:9 (aspect 1.77-1.78), object-contain, no cropping. (5) Hero background light off-white rgb(241,246,252). (6) Contact Us button clearly visible with strong contrast. MOBILE MENU (390x844): Opens successfully, dark navy panel with white text, Z Assist/RadSafe pills visible. REGRESSION: /z-assist and /radsafe load correctly, visually unchanged, navbar correctly absent. Zero console errors. Redesign is production-ready."
+  - agent: "testing"
+    message: "THREE SPECIFIC DESIGN CHANGES tested and verified (2026-08-26). Tested across 3 viewports (Desktop: 1440x900, Tablet: 768x1024, Mobile: 390x844). ALL THREE CHANGES PASS: (1) Hero Title Color - Both lines 'Technology We Trust.' and 'Protection We Need.' are now SAME dark navy rgb(11,19,43). 'Protection We Need.' NO LONGER bright blue, confirmed dark navy. (2) Why PayAssist Cards - Exactly 4 cards with correct titles. Removed titles GONE. Grid: 2x2 desktop/tablet, single column mobile. No broken cells/gaps. (3) Testimonials Layout - All 6 cards present. Grid: 2 columns desktop/tablet, 1 column mobile. Cards balanced, readable, no stretching. GLOBAL: No overflow, no console errors, no layout issues. Screenshots captured. All three design changes production-ready."

@@ -54,7 +54,7 @@ const Hero = () => {
                 </span>
                 <h1 className="mx-auto mt-5 max-w-4xl font-display text-[1.9rem] font-bold leading-[1.12] tracking-tight xs:text-[2.15rem] sm:mt-6 sm:text-5xl lg:text-6xl">
                     <span className="block text-navy-900">Technology We Trust.</span>
-                    <span className="block text-brand">Protection We Need.</span>
+                    <span className="block text-navy-900">Protection We Need.</span>
                 </h1>
             </div>
 

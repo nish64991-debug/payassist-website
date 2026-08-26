@@ -1,21 +1,11 @@
-import { Smartphone, ShieldCheck, MessageCircleQuestion, BadgeCheck, Users, Layers } from "lucide-react";
+import { ShieldCheck, BadgeCheck, Users, Layers } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 const CARDS = [
     {
-        icon: Smartphone,
-        title: "We Depend on Technology",
-        body: "Technology has become an essential part of everyday life.",
-    },
-    {
         icon: ShieldCheck,
         title: "What We Own Deserves Protection",
         body: "The devices we invest in deserve protection and support.",
-    },
-    {
-        icon: MessageCircleQuestion,
-        title: "Technology Brings New Concerns",
-        body: "As our dependence on electronic devices grows, new questions around safety and responsible usage emerge.",
     },
     {
         icon: BadgeCheck,

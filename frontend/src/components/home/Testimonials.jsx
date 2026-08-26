@@ -55,7 +55,7 @@ const initials = (name) =>
 
 const Testimonials = () => (
     <section id="testimonials" data-testid="testimonials-section" className="bg-white py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-16">
+        <div className="mx-auto max-w-5xl px-4 sm:px-8 lg:px-16">
             <Reveal className="mx-auto max-w-2xl text-center">
                 <span
                     data-testid="testimonials-label"
@@ -75,9 +75,9 @@ const Testimonials = () => (
                 </p>
             </Reveal>
 
-            <div className="mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:mt-16 lg:grid-cols-3" data-testid="testimonials-grid">
+            <div className="mt-12 grid gap-5 sm:gap-6 md:grid-cols-2 lg:mt-16" data-testid="testimonials-grid">
                 {TESTIMONIALS.map((t, i) => (
-                    <Reveal key={t.name} delay={(i % 3) * 0.1}>
+                    <Reveal key={t.name} delay={(i % 2) * 0.1}>
                         <figure
                             data-testid={`testimonial-card-${i + 1}`}
                             className="flex h-full flex-col rounded-2xl border border-slate-200/80 bg-white p-7 shadow-[0_4px_20px_-8px_rgba(15,23,42,0.08)] transition-all duration-300 hover:-translate-y-1 hover:border-brand/30 hover:shadow-[0_16px_36px_-14px_rgba(0,82,255,0.18)]"
