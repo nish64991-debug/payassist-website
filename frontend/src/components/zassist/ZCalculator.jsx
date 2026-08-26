@@ -32,7 +32,9 @@ const ZCalculator = () => {
             rate = 0.05;
         }
         const price = Math.round(deviceValue * rate);
-        const copay = Math.max(599, Math.round(deviceValue * 0.05));
+        let copay = null;
+        if (plan === "adld") copay = Math.max(599, Math.round(deviceValue * 0.05));
+        else if (plan === "screen") copay = Math.round(deviceValue * 0.03);
         return { rate, price, copay };
     }, [deviceValue, plan, duration]);
 
@@ -167,7 +169,7 @@ const ZCalculator = () => {
                                     <div className="flex justify-between gap-4">
                                         <span className="text-slate-400">Applicable copayment</span>
                                         <span className="font-semibold text-[#4ADE80]" data-testid="zassist-copay">
-                                            {result ? inr.format(result.copay) : "—"}
+                                            {result ? (result.copay !== null ? inr.format(result.copay) : "Not Applicable") : "—"}
                                         </span>
                                     </div>
                                 </div>
@@ -184,10 +186,14 @@ const ZCalculator = () => {
                             >
                                 <ShieldCheck className="h-4 w-4" /> Get Protected
                             </a>
-                            <p className="mt-5 flex items-start gap-2 text-xs leading-relaxed text-slate-500">
+                            <p className="mt-5 flex items-start gap-2 text-xs leading-relaxed text-slate-500" data-testid="zassist-copay-note">
                                 <Info className="mt-0.5 h-3.5 w-3.5 shrink-0" />
-                                A copayment of ₹599 or 5% of the device cost — whichever is higher — applies at the
-                                time of claim.
+                                {plan === "adld" &&
+                                    "A copayment of ₹599 or 5% of the device cost — whichever is higher — applies at the time of claim."}
+                                {plan === "screen" &&
+                                    "A copayment of 3% of the device cost applies at the time of claim."}
+                                {plan === "extended" &&
+                                    "No additional copayment — you pay exactly the calculated plan price."}
                             </p>
                         </div>
                     </div>

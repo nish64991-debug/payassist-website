@@ -127,6 +127,10 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Logos: auto-trimmed white margins from both PNGs (radsafe-logo-tight.png, zassist-logo-tight.png) and bumped display sizes — RadSafe logo now clearly legible inside the same white tile; Solutions cards updated to tight versions too.
 - Verified: /z-assist and /radsafe have no navbar/footer, pill navigates home, homepage navbar/footer intact, 0px mobile overflow.
 
+## Update (2026-08-25, iteration 22 — plan-specific copayment correction)
+- Calculator copay is now plan-specific: ADLD unchanged (max ₹599/5%), Screen Replacement = 3%, Extended Warranty = no copay (shows "Not Applicable"). Footnote text is now plan-specific too.
+- Verified live: 50k → Screen ₹4,500+₹1,500; Extended ₹2,500+"Not Applicable"; ADLD ₹5,000+₹2,500 restored; no cross-plan leakage. Independently audited by troubleshoot_agent — sound, all edge cases pass.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).
