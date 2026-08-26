@@ -46,13 +46,10 @@ const Hero = () => {
 
     return (
         <section id="hero" ref={sectionRef} data-testid="hero-section" className="relative overflow-hidden bg-[#F1F6FC] pt-[72px] pb-14 sm:pb-16 lg:pb-24">
-            {/* Premium brand statement — clean light hero, shown on every breakpoint. */}
-            <div className="relative z-[1] px-6 pt-8 text-center sm:pt-10 lg:pt-16" data-testid="hero-tagline">
-                <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-500 shadow-[0_1px_2px_rgba(15,23,42,0.04)] sm:text-[11px]">
-                    <span className="h-1.5 w-1.5 rounded-full bg-brand" />
-                    PayAssist
-                </span>
-                <h1 className="mx-auto mt-5 max-w-4xl font-display text-[1.9rem] font-bold leading-[1.12] tracking-tight xs:text-[2.15rem] sm:mt-6 sm:text-5xl lg:text-6xl">
+            {/* Premium brand statement — clean light hero. Headline vertically centered in the
+                white space between the navbar and the video via symmetric top padding / bottom margin. */}
+            <div className="relative z-[1] px-6 pt-16 text-center sm:pt-20 lg:pt-24" data-testid="hero-tagline">
+                <h1 className="mx-auto max-w-4xl font-display text-[1.9rem] font-bold leading-[1.12] tracking-tight xs:text-[2.15rem] sm:text-5xl lg:text-6xl">
                     <span className="block text-navy-900">Technology We Trust.</span>
                     <span className="block text-navy-900">Protection We Need.</span>
                 </h1>
@@ -63,7 +60,7 @@ const Hero = () => {
                 crop, no distortion) on every breakpoint, inside a premium rounded/shadowed
                 frame that sits on the clean light background. Responsive width only.
             */}
-            <div className="relative z-[1] mx-auto mt-8 w-full max-w-[560px] px-4 sm:mt-10 sm:px-6 md:max-w-4xl lg:mt-12 lg:max-w-6xl lg:px-8">
+            <div className="relative z-[1] mx-auto mt-16 w-full max-w-[560px] px-4 sm:mt-20 sm:px-6 md:max-w-4xl lg:mt-24 lg:max-w-6xl lg:px-8">
                 <div className="relative aspect-video overflow-hidden rounded-2xl bg-white ring-1 ring-slate-900/5 shadow-[0_30px_70px_-24px_rgba(11,19,43,0.28)] lg:rounded-3xl">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.985 }}
