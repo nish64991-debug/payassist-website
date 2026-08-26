@@ -45,39 +45,26 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="hero" ref={sectionRef} data-testid="hero-section" className="relative overflow-hidden bg-navy-900 pt-[72px] pb-10 md:pb-0">
-            {/* Ambient PayAssist-brand environment for the space around the 16:9 frame (primarily mobile) */}
-            <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,#0B132B_0%,#0E1730_50%,#0B132B_100%)]" />
-                <div className="absolute left-1/2 top-0 h-[45%] w-[120%] -translate-x-1/2 rounded-[100%] bg-brand/10 blur-[110px]" />
-                <div className="absolute bottom-0 left-1/2 h-[40%] w-[110%] -translate-x-1/2 rounded-[100%] bg-radsafe/[0.07] blur-[120px]" />
-            </div>
-
-            {/* Mobile-only (<768px) premium brand statement above the video. Hidden on tablet/desktop. */}
-            <div className="relative z-[1] px-6 pb-6 pt-7 text-center md:hidden" data-testid="hero-mobile-tagline">
-                <span className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-300">
+        <section id="hero" ref={sectionRef} data-testid="hero-section" className="relative overflow-hidden bg-[#F1F6FC] pt-[72px] pb-14 sm:pb-16 lg:pb-24">
+            {/* Premium brand statement — clean light hero, shown on every breakpoint. */}
+            <div className="relative z-[1] px-6 pt-8 text-center sm:pt-10 lg:pt-16" data-testid="hero-tagline">
+                <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3.5 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.25em] text-slate-500 shadow-[0_1px_2px_rgba(15,23,42,0.04)] sm:text-[11px]">
                     <span className="h-1.5 w-1.5 rounded-full bg-brand" />
                     PayAssist
                 </span>
-                <h1 className="mt-4 font-display text-[1.7rem] font-bold leading-[1.15] tracking-tight text-white xs:text-[1.9rem]">
-                    Protection. Innovation.
-                    <br />
-                    Peace of Mind.
+                <h1 className="mx-auto mt-5 max-w-4xl font-display text-[1.9rem] font-bold leading-[1.12] tracking-tight xs:text-[2.15rem] sm:mt-6 sm:text-5xl lg:text-6xl">
+                    <span className="block text-navy-900">Technology We Trust.</span>
+                    <span className="block text-brand">Protection We Need.</span>
                 </h1>
             </div>
 
             {/*
-                Responsive hero media:
-                - <768px (phones): NEW composition. The COMPLETE 16:9 video is shown in a
-                  natural aspect-video frame (object-contain) below the brand tagline — no
-                  crop, no distortion, no cover zoom. Subtle rounded/ringed inset frame.
-                - 768–1023px (tablet): UNCHANGED — full-viewport cover cinematic
-                  (.h-hero-mobile is scoped to this range in index.css).
-                - >=1024px (laptop/desktop): UNCHANGED reference — natural full-width 16:9
-                  (object-contain, height follows the video).
+                Hero video — the existing 16:9 brand film shown COMPLETE (object-contain, no
+                crop, no distortion) on every breakpoint, inside a premium rounded/shadowed
+                frame that sits on the clean light background. Responsive width only.
             */}
-            <div className="relative z-[1] px-4 md:px-0">
-                <div className="relative mx-auto aspect-video h-hero-mobile w-full max-w-[560px] overflow-hidden rounded-2xl ring-1 ring-white/10 md:mx-0 md:aspect-auto md:max-w-none md:rounded-none md:ring-0 lg:h-auto lg:overflow-visible">
+            <div className="relative z-[1] mx-auto mt-8 w-full max-w-[560px] px-4 sm:mt-10 sm:px-6 md:max-w-4xl lg:mt-12 lg:max-w-6xl lg:px-8">
+                <div className="relative aspect-video overflow-hidden rounded-2xl bg-white ring-1 ring-slate-900/5 shadow-[0_30px_70px_-24px_rgba(11,19,43,0.28)] lg:rounded-3xl">
                     <motion.div
                         initial={{ opacity: 0, scale: 0.985 }}
                         animate={{ opacity: 1, scale: 1 }}
@@ -93,7 +80,7 @@ const Hero = () => {
                             muted
                             playsInline
                             preload="auto"
-                            className="h-full w-full object-contain object-center md:object-cover md:object-center lg:h-auto lg:object-contain lg:object-center"
+                            className="h-full w-full object-contain object-center"
                         />
                     </motion.div>
                 </div>

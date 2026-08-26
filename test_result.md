@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Frontend-only React marketing site cleanup verification. Backend removed, contact form removed from Contact section (keeping only email info). Verify nothing is broken: homepage loads, contact section has no form (only email), all routes work (/z-assist with calculator, /radsafe), no console errors, no broken backend calls."
+user_problem_statement: "Test the redesigned Hero + Navbar on the PayAssist homepage. Visual redesign applied to ONLY the home Hero section and the (home-only) Navbar. Expected: Dark navy textured navbar with PayAssist logo in white rounded chip, Contact Us white pill with dark navy text, hamburger icon on mobile. Hero: light off-white background, centered tagline with PayAssist pill, two-line headline (Technology We Trust / Protection We Need), brand video in complete 16:9 with rounded shadowed frame. Test across multiple viewports (desktop, tablet, mobile) and verify regression on /z-assist and /radsafe."
 
 frontend:
   - task: "Homepage loads with all sections"
@@ -201,10 +201,10 @@ frontend:
         agent: "testing"
         comment: "No failed backend API calls detected. 8 network failures found but all are non-critical: 5 Cloudflare RUM requests (cdn-cgi/rum) and 3 video file requests (.mp4) that were aborted by browser (likely autoplay policy). ZERO /api/* requests failed, confirming backend successfully removed."
 
-  - task: "Hero section responsive behavior across multiple viewports"
+  - task: "Hero + Navbar redesign - Visual redesign with dark navy navbar and light hero"
     implemented: true
     working: true
-    file: "/app/frontend/src/components/home/Hero.jsx"
+    file: "/app/frontend/src/components/home/Hero.jsx, /app/frontend/src/components/Navbar.jsx"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
@@ -215,17 +215,20 @@ frontend:
       - working: true
         agent: "testing"
         comment: "Mobile-only Hero change tested (2026-08-26). NEW composition verified on phones (<768px): Premium tagline ('Protection. Innovation. Peace of Mind.' with PayAssist pill) now displays ABOVE video, and video shows COMPLETE 16:9 composition (aspect 1.78, object-fit: contain) with NO cropping. Tested 4 phone sizes (430x932, 390x844, 375x812, 360x740) - ALL PASSED: (1) Tagline visible and readable, (2) Video aspect 1.78 (perfect 16:9), (3) Video object-fit: contain (no distortion), (4) No horizontal overflow, (5) No tagline/video overlap. Tablet (768x1024) and Desktop (1440x900) UNCHANGED as required: tagline hidden, video behavior unchanged (tablet: cover full-bleed, desktop: contain 16:9). No console errors. All acceptance criteria met. Implementation is production-ready."
+      - working: true
+        agent: "testing"
+        comment: "Hero + Navbar REDESIGN tested (2026-08-26). Comprehensive testing across 7 viewports (Desktop: 1440x900, 1280x800; Tablet: 768x1024; Phones: 430x932, 390x844, 375x812, 360x740). ALL 6 ACCEPTANCE CRITERIA PASSED ON ALL SIZES: (1) No horizontal overflow - docScrollWidth === viewport width on all 7 viewports. (2) Navbar is dark navy - rgba(11, 19, 43, 0.95) with premium texture (gradients + blur effects) on all sizes. PayAssist logo in white rounded chip (rounded-xl bg-white px-3.5 py-2) clearly visible. Contact Us button is WHITE pill (bg-white) with dark navy text (rgb(11, 19, 43)) with strong contrast. Hamburger icon white on mobile. (3) Tagline visible on ALL sizes (desktop AND mobile) with both lines readable: 'Technology We Trust.' in dark navy (text-navy-900) and 'Protection We Need.' in blue (text-brand), PayAssist pill present. No clipping or overflow. (4) Hero video shows COMPLETE 16:9 composition - aspect ratio 1.77-1.78 on all sizes, object-contain, no cropping of sides/top/bottom, not distorted. Video dimensions measured: Desktop 1440x900 (1088x612), Tablet 768x1024 (720x405), Phone 390x844 (358x201). (5) Hero background is light off-white - rgb(241, 246, 252) on all sizes, seamless with Brands section. (6) Contact Us button clearly visible with strong contrast on dark navbar. MOBILE MENU TEST (390x844): Hamburger opens menu successfully, panel is DARK navy (rgb(11, 19, 43)) with readable white link text, Z Assist and RadSafe pills visible with colored borders. REGRESSION TESTS PASSED: /z-assist and /radsafe load correctly, visually UNCHANGED, navbar does NOT render on these routes (correct behavior). Zero console errors. All measurements and visual verification confirm redesign is production-ready and meets all acceptance criteria."
 
 metadata:
   created_by: "testing_agent"
-  version: "1.1"
-  test_sequence: 2
+  version: "1.2"
+  test_sequence: 3
   run_ui: true
   test_date: "2026-08-26"
 
 test_plan:
   current_focus:
-    - "All tasks completed and verified"
+    - "Hero + Navbar redesign testing completed - all acceptance criteria passed"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
@@ -237,3 +240,5 @@ agent_communication:
     message: "Hero section responsive testing completed (2026-08-26). Tested across 9 viewport sizes covering desktop (1440x900, 1366x768, 1280x800), tablet (1024x1366, 1024x768, 768x1024), and mobile (430x932, 390x844, 360x740). ALL ACCEPTANCE CRITERIA PASSED: No horizontal overflow, no side strips/letterbox, full-bleed on mobile with cinematic zoom, clean 16:9 on desktop, hero fills viewport on mobile, clean transition to Brands section, no video distortion. Visual verification confirms protective dome and device row are prominent and clearly visible on all devices. Detailed measurements and screenshots captured. Full report available at /app/hero_responsive_test_report.md. Hero section is production-ready."
   - agent: "testing"
     message: "Hero section mobile-only change verified (2026-08-26). Tested NEW mobile composition (<768px) with premium tagline above complete 16:9 video. ALL 6 VIEWPORTS PASSED (4 phones, 1 tablet, 1 desktop). PHONES: Tagline visible with correct text, video shows COMPLETE 16:9 (aspect 1.78, object-fit: contain, NO cropping), no horizontal overflow, no overlap. TABLET & DESKTOP: UNCHANGED as required (tagline hidden, video behavior preserved). No console errors. Implementation is production-ready and meets all acceptance criteria."
+  - agent: "testing"
+    message: "Hero + Navbar REDESIGN testing completed (2026-08-26). Tested across 7 viewports (Desktop: 1440x900, 1280x800; Tablet: 768x1024; Phones: 430x932, 390x844, 375x812, 360x740). ALL 6 ACCEPTANCE CRITERIA PASSED ON ALL SIZES: (1) No horizontal overflow anywhere. (2) Navbar is dark navy rgba(11,19,43,0.95) with premium texture, PayAssist logo in white rounded chip, Contact Us WHITE pill with dark navy text, hamburger white on mobile. (3) Tagline visible on ALL sizes with both lines readable (Technology We Trust dark navy, Protection We Need blue), PayAssist pill present. (4) Video shows COMPLETE 16:9 (aspect 1.77-1.78), object-contain, no cropping. (5) Hero background light off-white rgb(241,246,252). (6) Contact Us button clearly visible with strong contrast. MOBILE MENU (390x844): Opens successfully, dark navy panel with white text, Z Assist/RadSafe pills visible. REGRESSION: /z-assist and /radsafe load correctly, visually unchanged, navbar correctly absent. Zero console errors. Redesign is production-ready."

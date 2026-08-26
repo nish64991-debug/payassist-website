@@ -88,14 +88,21 @@ const Navbar = () => {
     return (
         <header
             data-testid="site-navbar"
-            className={`fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-md transition-all duration-500 ease-out ${
+            className={`fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy-900/95 backdrop-blur-md transition-all duration-500 ease-out ${
                 !mounted || (hidden && !open) ? "-translate-y-full opacity-0" : "translate-y-0 opacity-100"
             } ${
-                scrolled ? "shadow-[0_1px_0_0_rgba(15,23,42,0.08),0_8px_24px_-12px_rgba(15,23,42,0.12)]" : ""
+                scrolled ? "shadow-[0_10px_30px_-12px_rgba(7,12,27,0.6)]" : ""
             }`}
         >
-            <div className="mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-4 sm:px-8 lg:px-12">
-                <BrandMark />
+            {/* Dark premium PayAssist brand texture (reused from the former Hero background) */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+                <div className="absolute inset-0 bg-[linear-gradient(90deg,#0B132B_0%,#121E36_52%,#0B132B_100%)]" />
+                <div className="absolute left-[22%] top-1/2 h-[320%] w-[38%] -translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-brand/20 blur-[80px]" />
+                <div className="absolute right-[20%] top-1/2 h-[300%] w-[32%] translate-x-1/2 -translate-y-1/2 rounded-[100%] bg-radsafe/10 blur-[90px]" />
+            </div>
+
+            <div className="relative z-10 mx-auto flex h-[72px] max-w-[1440px] items-center justify-between px-4 sm:px-8 lg:px-12">
+                <BrandMark dark />
 
                 <nav className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex" data-testid="nav-desktop-links">
                     {NAV_LINKS.map((l) => (
@@ -103,7 +110,7 @@ const Navbar = () => {
                             key={l.id}
                             data-testid={`nav-link-${l.id}`}
                             onClick={() => go(l.id)}
-                            className="rounded-full px-4 py-2 text-[15px] font-medium text-slate-600 transition-colors duration-300 hover:bg-slate-100 hover:text-slate-900"
+                            className="rounded-full px-4 py-2 text-[15px] font-medium text-slate-300 transition-colors duration-300 hover:bg-white/10 hover:text-white"
                         >
                             {l.label}
                         </button>
@@ -114,7 +121,7 @@ const Navbar = () => {
                     <button
                         data-testid="nav-cta-contact-us"
                         onClick={() => go("contact")}
-                        className="flex items-center gap-1.5 rounded-full bg-navy-900 px-4 py-2 text-[13px] font-semibold text-white transition-all duration-300 hover:scale-[1.03] hover:bg-navy-800 sm:px-5 sm:py-2.5 sm:text-sm"
+                        className="flex items-center gap-1.5 rounded-full bg-white px-4 py-2 text-[13px] font-semibold text-navy-900 shadow-[0_4px_14px_-4px_rgba(255,255,255,0.25)] transition-all duration-300 hover:scale-[1.03] hover:bg-slate-100 sm:px-5 sm:py-2.5 sm:text-sm"
                     >
                         Contact Us <ArrowUpRight className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
                     </button>
@@ -122,7 +129,7 @@ const Navbar = () => {
                         data-testid="nav-mobile-toggle"
                         onClick={() => setOpen(!open)}
                         aria-label="Toggle menu"
-                        className="grid h-10 w-10 place-items-center rounded-full text-slate-900 transition-colors hover:bg-slate-100 lg:hidden"
+                        className="grid h-10 w-10 place-items-center rounded-full text-white transition-colors hover:bg-white/10 lg:hidden"
                     >
                         {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
                     </button>
@@ -136,7 +143,7 @@ const Navbar = () => {
                         animate={{ opacity: 1, height: "auto" }}
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                        className="overflow-hidden border-t border-slate-100 bg-white lg:hidden"
+                        className="relative z-10 overflow-hidden border-t border-white/10 bg-navy-900 lg:hidden"
                         data-testid="nav-mobile-menu"
                     >
                         <div className="space-y-1 px-6 py-6">
@@ -148,7 +155,7 @@ const Navbar = () => {
                                     transition={{ delay: 0.04 * i }}
                                     data-testid={`nav-mobile-link-${l.id}`}
                                     onClick={() => go(l.id)}
-                                    className="block w-full rounded-xl px-4 py-3.5 text-left font-display text-2xl font-bold tracking-tight text-slate-900 transition-colors hover:bg-slate-50"
+                                    className="block w-full rounded-xl px-4 py-3.5 text-left font-display text-2xl font-bold tracking-tight text-white transition-colors hover:bg-white/5"
                                 >
                                     {l.label}
                                 </motion.button>
@@ -157,14 +164,14 @@ const Navbar = () => {
                                 <Link
                                     to="/z-assist"
                                     data-testid="nav-mobile-link-z-assist"
-                                    className="flex-1 rounded-full border border-emerald-500/40 px-4 py-3 text-center text-sm font-semibold text-emerald-600"
+                                    className="flex-1 rounded-full border border-emerald-400/40 px-4 py-3 text-center text-sm font-semibold text-emerald-300"
                                 >
                                     Z Assist
                                 </Link>
                                 <Link
                                     to="/radsafe"
                                     data-testid="nav-mobile-link-radsafe"
-                                    className="flex-1 rounded-full border border-cyan-500/40 px-4 py-3 text-center text-sm font-semibold text-cyan-600"
+                                    className="flex-1 rounded-full border border-cyan-400/40 px-4 py-3 text-center text-sm font-semibold text-cyan-300"
                                 >
                                     RadSafe
                                 </Link>
