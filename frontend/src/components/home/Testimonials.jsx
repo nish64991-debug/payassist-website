@@ -38,9 +38,9 @@ const TESTIMONIALS = [
         tone: "radsafe",
     },
     {
-        quote: "My laptop hinge failed days before a client deadline. Z Assist approved the claim the same morning and had it repaired within 48 hours.",
-        name: "Vikram Malhotra",
-        meta: "Laptop cover",
+        quote: "Glad I took the ADLD plan from Z Assist — my iPhone 17 Pro claim of nearly ₹70,000 was settled without any hassle.",
+        name: "Ramesh Kumar",
+        meta: "ADLD plan · iPhone 17 Pro",
         product: "Z Assist",
         tone: "zassist",
     },
