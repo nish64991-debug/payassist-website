@@ -138,6 +138,10 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Backend audit result: /app/backend KEPT intentionally — it powers the homepage contact form's email relay (/api/contact → managed Resend). Removing it would break the form's primary delivery path. Frontend fallbacks (FormSubmit/Web3Forms) remain as backups.
 - Verified: contact section desktop/mobile, tel/mailto hrefs, zero overflow; calculator untouched and working.
 
+## Update (2026-08-26, iteration 24 — office address moved to homepage footer)
+- Registered Office block moved from ZAssist contact section to the main PayAssist footer (Contact column): PayAssist, H.IN.KH.NO. 293, Western Marg Saidulajab, Near Kher Singh Estate, New Delhi – 110030, India.
+- ZAssist contact section rebalanced to a single centered Get-in-touch card (phone/email/hours) + back-home link. Verified: footer office renders on homepage, office removed from /z-assist, zero overflow desktop + mobile.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).

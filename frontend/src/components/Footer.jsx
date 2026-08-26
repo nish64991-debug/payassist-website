@@ -81,6 +81,18 @@ const Footer = () => {
                             </li>
                             <li className="text-slate-500">Privacy &amp; legal — coming with final copy</li>
                         </ul>
+                        <div className="mt-7 border-t border-white/10 pt-6" data-testid="footer-office">
+                            <p className="font-mono text-[11px] uppercase tracking-[0.25em] text-slate-500">Registered Office</p>
+                            <address className="mt-3 text-sm not-italic leading-relaxed text-slate-400">
+                                PayAssist
+                                <br />
+                                H.IN.KH.NO. 293, Western Marg Saidulajab,
+                                <br />
+                                Near Kher Singh Estate,
+                                <br />
+                                New Delhi – 110030, India
+                            </address>
+                        </div>
                     </div>
                 </div>
                 <div className="mt-14 flex flex-col items-start justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row sm:items-center">

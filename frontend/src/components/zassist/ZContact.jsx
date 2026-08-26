@@ -1,21 +1,11 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, Clock, MapPin, ArrowLeft } from "lucide-react";
+import { Phone, Mail, Clock, ArrowLeft } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 const CONTACT = {
     phone: { label: "90068 25043", href: "tel:9006825043" },
     email: { label: "support@zassist.co.in", href: "mailto:support@zassist.co.in" },
     hours: ["Monday to Friday", "10:00 AM – 7:00 PM IST", "Closed on public holidays"],
-};
-
-const HEAD_OFFICE = {
-    label: "Registered Office",
-    lines: [
-        "PayAssist",
-        "H.IN.KH.NO. 293, Western Marg Saidulajab,",
-        "Near Kher Singh Estate,",
-        "New Delhi – 110030, India",
-    ],
 };
 
 const ZContact = () => (
@@ -35,9 +25,9 @@ const ZContact = () => (
                 </p>
             </Reveal>
 
-            <div className="mt-12 grid gap-6 lg:mt-16 lg:grid-cols-2 lg:gap-8">
+            <div className="mx-auto mt-12 max-w-xl lg:mt-16">
                 <Reveal>
-                    <div className="h-full rounded-3xl border border-white/10 bg-white/[0.03] p-7 sm:p-9" data-testid="zassist-contact-card">
+                    <div className="rounded-3xl border border-white/10 bg-white/[0.03] p-7 sm:p-9" data-testid="zassist-contact-card">
                         <h3 className="font-display text-xl font-bold tracking-tight text-white">Get in touch</h3>
                         <div className="mt-6 space-y-3">
                             <a
@@ -82,25 +72,14 @@ const ZContact = () => (
                     </div>
                 </Reveal>
                 <Reveal delay={0.1}>
-                    <div className="flex h-full flex-col rounded-3xl border border-[#22B14C]/25 bg-white/[0.03] p-7 sm:p-9" data-testid="zassist-office-card">
-                        <span className="inline-flex w-fit items-center gap-2 rounded-full border border-[#22B14C]/30 bg-[#22B14C]/10 px-4 py-1.5 font-mono text-[10px] font-semibold uppercase tracking-[0.22em] text-[#4ADE80]">
-                            <MapPin className="h-3.5 w-3.5" /> Head Office
-                        </span>
-                        <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.2em] text-slate-500">{HEAD_OFFICE.label}</p>
-                        <address className="mt-3 font-display text-lg font-semibold not-italic leading-relaxed tracking-tight text-white sm:text-xl">
-                            {HEAD_OFFICE.lines.map((line, i) => (
-                                <span key={i} className="block">{line}</span>
-                            ))}
-                        </address>
-                        <div className="mt-auto pt-8">
-                            <Link
-                                to="/"
-                                data-testid="zassist-contact-back-home"
-                                className="inline-flex items-center gap-2 text-sm font-semibold text-[#4ADE80] transition-colors hover:text-white"
-                            >
-                                <ArrowLeft className="h-4 w-4" /> Back to PayAssist home
-                            </Link>
-                        </div>
+                    <div className="pt-7 text-center">
+                        <Link
+                            to="/"
+                            data-testid="zassist-contact-back-home"
+                            className="inline-flex items-center gap-2 text-sm font-semibold text-[#4ADE80] transition-colors hover:text-white"
+                        >
+                            <ArrowLeft className="h-4 w-4" /> Back to PayAssist home
+                        </Link>
                     </div>
                 </Reveal>
             </div>
