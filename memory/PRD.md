@@ -131,6 +131,13 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Calculator copay is now plan-specific: ADLD unchanged (max ₹599/5%), Screen Replacement = 3%, Extended Warranty = no copay (shows "Not Applicable"). Footnote text is now plan-specific too.
 - Verified live: 50k → Screen ₹4,500+₹1,500; Extended ₹2,500+"Not Applicable"; ADLD ₹5,000+₹2,500 restored; no cross-plan leakage. Independently audited by troubleshoot_agent — sound, all edge cases pass.
 
+## Implemented (2026-08-26, iteration 23 — ZAssist contact, head office, support hours, backend audit)
+- Replaced closing CTA section with ZContact: "Contact Us" (phone tel:9006825043, email mailto:support@zassist.co.in, Support Hours Mon–Fri 10:00 AM–7:00 PM IST, closed public holidays) + Head Office card with real registered address (PayAssist, H.IN.KH.NO. 293, Western Marg Saidulajab, Near Kher Singh Estate, New Delhi – 110030, India), structured as easily-editable constants.
+- "Customer Support 24 × 7" benefit card replaced with "Support Hours" card (same hours).
+- Google Form audit: no Google Form/embed exists anywhere in the codebase (the empty src-less iframe seen in dev is the CRA error-overlay tool, not part of the app).
+- Backend audit result: /app/backend KEPT intentionally — it powers the homepage contact form's email relay (/api/contact → managed Resend). Removing it would break the form's primary delivery path. Frontend fallbacks (FormSubmit/Web3Forms) remain as backups.
+- Verified: contact section desktop/mobile, tel/mailto hrefs, zero overflow; calculator untouched and working.
+
 ## Personas
 - Consumer evaluating device protection (Z Assist prospect).
 - Health-conscious household / parent (RadSafe prospect).

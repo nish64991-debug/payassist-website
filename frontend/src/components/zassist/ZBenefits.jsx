@@ -1,4 +1,4 @@
-import { Truck, Wrench, RefreshCw, ShieldCheck, FileX2, Wallet, Headphones } from "lucide-react";
+import { Truck, Wrench, RefreshCw, ShieldCheck, FileX2, Wallet, Clock } from "lucide-react";
 import Reveal from "@/components/Reveal";
 
 const BENEFITS = [
@@ -8,7 +8,7 @@ const BENEFITS = [
     { icon: ShieldCheck, title: "Maximum Coverage", body: "Accidental and liquid damage covered under one plan." },
     { icon: FileX2, title: "No Paperwork Required", body: "Paperless claims — no forms, no hassles." },
     { icon: Wallet, title: "100% Cashless Service", body: "Repairs settle directly — you never pay at the service centre." },
-    { icon: Headphones, title: "Customer Support 24 × 7", body: "Real human support whenever you need it, day or night." },
+    { icon: Clock, title: "Support Hours", body: "Monday to Friday, 10:00 AM – 7:00 PM IST. Closed on public holidays." },
 ];
 
 const ZBenefits = () => (
