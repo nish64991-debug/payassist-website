@@ -49,7 +49,7 @@ const Brands = () => {
     const [touchPaused, setTouchPaused] = useState(false);
 
     return (
-        <section id="brands" data-testid="brands-section" className="bg-[#F1F6FC] py-16 sm:py-20 lg:py-24">
+        <section id="brands" data-testid="brands-section" className="bg-[#E4D09A] py-16 sm:py-20 lg:py-24">
             <Reveal className="mx-auto max-w-7xl px-4 text-center sm:px-8 lg:px-16">
                 <h2
                     data-testid="brands-heading"
