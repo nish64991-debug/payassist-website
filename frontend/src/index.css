@@ -52,12 +52,14 @@ html.lenis body {
 }
 
 /*
-   Hero mobile/tablet height (below the lg breakpoint).
+   Hero TABLET height (768px – 1023px only).
    Fills the exact viewport minus the 72px fixed header, with layered fallbacks:
    vh (universal) -> svh (safe, bars visible) -> dvh (dynamic, exact fill).
-   Scoped to <1024px so the desktop lg:h-auto (natural 16:9) is never affected.
+   Scoped to the tablet range only:
+   - Phones (<768px) now use a natural aspect-video composition (tagline + full 16:9 video).
+   - Desktop/laptop (>=1024px) keep lg:h-auto natural 16:9.
 */
-@media (max-width: 1023.98px) {
+@media (min-width: 768px) and (max-width: 1023.98px) {
     .h-hero-mobile {
         height: calc(100vh - 72px);
         height: calc(100svh - 72px);

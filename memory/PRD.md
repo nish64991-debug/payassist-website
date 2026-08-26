@@ -167,3 +167,8 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Home Hero (components/home/Hero.jsx) only. Desktop/laptop (>=1024px) reference UNCHANGED: full-width natural 16:9 (object-contain, height follows video).
 - <1024px: true full-bleed cinematic — media height = h-hero-mobile utility (calc 100dvh-72px with svh/vh fallbacks, scoped <1024 in index.css), object-cover, center focal, progressive zoom (scale 1.15 phones -> xs 1.1 -> sm 1.05 -> md 1.0) so dome + device row read prominently without distortion or cropping the dome apex. Added `xs` (475px) breakpoint to tailwind.config.js.
 - Verified across 9 viewports (1440/1366/1280/1024x2/768/430/390/360): no horizontal overflow, no side strips/letterbox, hero fills viewport on mobile, clean transition to #brands (no overlap/sliver), no distortion. Production build passes. No other sections touched.
+
+## Mobile-only Hero composition (2026-08-26)
+- Phones (<768px) ONLY: new composition = premium brand tagline ("Protection. Innovation. Peace of Mind." + "PayAssist" pill) ABOVE a COMPLETE 16:9 video shown in a natural aspect-video frame (object-contain, rounded/ringed inset, max-w 560, centered) — no cropping/distortion. Fixes previous object-cover side-crop on phones.
+- Tablet (768–1023px) UNCHANGED: full-viewport cover (.h-hero-mobile media query re-scoped to 768–1023 in index.css). Desktop/laptop (>=1024px) UNCHANGED: full-width natural 16:9.
+- Verified 360/375/390/430 (tagline visible, video aspect 1.78 uncropped, no overflow), 768 (no tagline, cover), 1440 (no tagline, 16:9). Production build passes.

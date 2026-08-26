@@ -1,0 +1,110 @@
+[
+  {
+    "viewport": "430x932",
+    "measurements": {
+      "vw": 430,
+      "vh": 932,
+      "heroHeight": 932,
+      "containerRect": {
+        "width": 430,
+        "height": 860
+      },
+      "video_getBoundingClientRect": {
+        "w": 495,
+        "h": 989,
+        "top": 8,
+        "left": -32,
+        "right": 462,
+        "bottom": 997
+      },
+      "video_naturalWidth": "unknown",
+      "video_naturalHeight": "unknown",
+      "computed_objectFit": "cover",
+      "computed_objectPosition": "50% 46%",
+      "computed_transform": "matrix(1.15, 0, 0, 1.15, 0, 0)",
+      "scrollWidth": 430
+    },
+    "error": "Video natural dimensions not available"
+  },
+  {
+    "viewport": "390x844",
+    "measurements": {
+      "vw": 390,
+      "vh": 844,
+      "heroHeight": 844,
+      "containerRect": {
+        "width": 390,
+        "height": 772
+      },
+      "video_getBoundingClientRect": {
+        "w": 449,
+        "h": 888,
+        "top": 14,
+        "left": -29,
+        "right": 419,
+        "bottom": 902
+      },
+      "video_naturalWidth": "unknown",
+      "video_naturalHeight": "unknown",
+      "computed_objectFit": "cover",
+      "computed_objectPosition": "50% 46%",
+      "computed_transform": "matrix(1.15, 0, 0, 1.15, 0, 0)",
+      "scrollWidth": 390
+    },
+    "error": "Video natural dimensions not available"
+  },
+  {
+    "viewport": "375x812",
+    "measurements": {
+      "vw": 375,
+      "vh": 812,
+      "heroHeight": 812,
+      "containerRect": {
+        "width": 375,
+        "height": 740
+      },
+      "video_getBoundingClientRect": {
+        "w": 431,
+        "h": 851,
+        "top": 17,
+        "left": -28,
+        "right": 403,
+        "bottom": 868
+      },
+      "video_naturalWidth": "unknown",
+      "video_naturalHeight": "unknown",
+      "computed_objectFit": "cover",
+      "computed_objectPosition": "50% 46%",
+      "computed_transform": "matrix(1.15, 0, 0, 1.15, 0, 0)",
+      "scrollWidth": 375
+    },
+    "error": "Video natural dimensions not available"
+  },
+  {
+    "viewport": "360x740",
+    "measurements": {
+      "vw": 360,
+      "vh": 740,
+      "heroHeight": 740,
+      "containerRect": {
+        "width": 360,
+        "height": 668
+      },
+      "video_getBoundingClientRect": {
+        "w": 414,
+        "h": 768,
+        "top": 22,
+        "left": -27,
+        "right": 387,
+        "bottom": 790
+      },
+      "video_naturalWidth": "unknown",
+      "video_naturalHeight": "unknown",
+      "computed_objectFit": "cover",
+      "computed_objectPosition": "50% 46%",
+      "computed_transform": "matrix(1.15, 0, 0, 1.15, 0, 0)",
+      "scrollWidth": 360
+    },
+    "error": "Video natural dimensions not available"
+  }
+]
