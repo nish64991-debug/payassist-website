@@ -201,10 +201,22 @@ frontend:
         agent: "testing"
         comment: "No failed backend API calls detected. 8 network failures found but all are non-critical: 5 Cloudflare RUM requests (cdn-cgi/rum) and 3 video file requests (.mp4) that were aborted by browser (likely autoplay policy). ZERO /api/* requests failed, confirming backend successfully removed."
 
+  - task: "Hero section responsive behavior across multiple viewports"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/home/Hero.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Comprehensive responsive testing completed across 9 viewport sizes (1440x900, 1366x768, 1280x800, 1024x1366, 1024x768, 768x1024, 430x932, 390x844, 360x740). ALL ACCEPTANCE CRITERIA MET: (1) No horizontal overflow on any device - docScrollWidth equals viewport width on all 9 viewports. (2) No side strips/letterbox - Desktop (>=1024px) shows perfect full-width 16:9 (object-contain), Mobile (<1024px) shows full-bleed edge-to-edge (object-cover with video extending beyond viewport for proper coverage). (3) Mobile hero fills viewport height exactly (vh - 72px header), video uses cover with scale transforms (1.15x → 1.1x → 1.05x) for cinematic zoom, protective dome and device row clearly visible and prominent in all mobile screenshots. (4) Clean transition verified - Brands section starts exactly at hero height on all viewports, scroll test confirms no overlap (heroBottom: 0, brandsTop: 0 when scrolled). (5) Video not distorted - Desktop maintains perfect 16:9 aspect (1.778), mobile uses proper cover with focal point 50% 46% keeping dome apex visible, screenshots confirm no squashing/stretching. Visual verification via screenshots confirms professional appearance across all devices. Detailed report saved to /app/hero_responsive_test_report.md. Hero section is production-ready and genuinely responsive."
+
 metadata:
   created_by: "testing_agent"
-  version: "1.0"
-  test_sequence: 1
+  version: "1.1"
+  test_sequence: 2
   run_ui: true
   test_date: "2026-08-26"
 
@@ -218,3 +230,5 @@ test_plan:
 agent_communication:
   - agent: "testing"
     message: "Comprehensive testing completed. All critical functionality verified working. Contact form successfully removed with email info preserved. All routes functional. Z-Assist calculator working perfectly with correct calculations. No console errors. No broken backend API calls. Minor network failures (Cloudflare RUM and video files) are non-critical and do not affect functionality."
+  - agent: "testing"
+    message: "Hero section responsive testing completed (2026-08-26). Tested across 9 viewport sizes covering desktop (1440x900, 1366x768, 1280x800), tablet (1024x1366, 1024x768, 768x1024), and mobile (430x932, 390x844, 360x740). ALL ACCEPTANCE CRITERIA PASSED: No horizontal overflow, no side strips/letterbox, full-bleed on mobile with cinematic zoom, clean 16:9 on desktop, hero fills viewport on mobile, clean transition to Brands section, no video distortion. Visual verification confirms protective dome and device row are prominent and clearly visible on all devices. Detailed measurements and screenshots captured. Full report available at /app/hero_responsive_test_report.md. Hero section is production-ready."

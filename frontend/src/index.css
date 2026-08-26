@@ -50,6 +50,20 @@ html.lenis,
 html.lenis body {
     height: auto;
 }
+
+/*
+   Hero mobile/tablet height (below the lg breakpoint).
+   Fills the exact viewport minus the 72px fixed header, with layered fallbacks:
+   vh (universal) -> svh (safe, bars visible) -> dvh (dynamic, exact fill).
+   Scoped to <1024px so the desktop lg:h-auto (natural 16:9) is never affected.
+*/
+@media (max-width: 1023.98px) {
+    .h-hero-mobile {
+        height: calc(100vh - 72px);
+        height: calc(100svh - 72px);
+        height: calc(100dvh - 72px);
+    }
+}
 .lenis.lenis-smooth {
     scroll-behavior: auto !important;
 }

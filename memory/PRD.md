@@ -162,3 +162,8 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Removed the entire contact form (all fields, submit, validation, relay/direct/web3forms submission logic) from home Contact section. Kept the Contact section itself: heading, description, and email link (support.zassistcare@payassist.in) — now a clean single-column centered contact-info block.
 - Backend was used ONLY by the contact form (/api/contact). Verified no other frontend feature depends on it. Deleted /app/backend entirely; stopped backend supervisor program (supervisor conf is read-only platform file, left untouched). Project is now frontend-only, Vercel-ready.
 - Verified: production build passes; homepage, /z-assist (calculator works), /radsafe, and routing all functional; no backend API calls; no console errors.
+
+## Hero responsive fix (2026-08-26)
+- Home Hero (components/home/Hero.jsx) only. Desktop/laptop (>=1024px) reference UNCHANGED: full-width natural 16:9 (object-contain, height follows video).
+- <1024px: true full-bleed cinematic — media height = h-hero-mobile utility (calc 100dvh-72px with svh/vh fallbacks, scoped <1024 in index.css), object-cover, center focal, progressive zoom (scale 1.15 phones -> xs 1.1 -> sm 1.05 -> md 1.0) so dome + device row read prominently without distortion or cropping the dome apex. Added `xs` (475px) breakpoint to tailwind.config.js.
+- Verified across 9 viewports (1440/1366/1280/1024x2/768/430/390/360): no horizontal overflow, no side strips/letterbox, hero fills viewport on mobile, clean transition to #brands (no overlap/sliver), no distortion. Production build passes. No other sections touched.

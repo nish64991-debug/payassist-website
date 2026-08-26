@@ -4,6 +4,9 @@ module.exports = {
     content: ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
     theme: {
         extend: {
+            screens: {
+                xs: "475px",
+            },
             fontFamily: {
                 sans: ['"DM Sans"', "ui-sans-serif", "system-ui", "sans-serif"],
                 display: ['"Plus Jakarta Sans"', "ui-sans-serif", "system-ui", "sans-serif"],

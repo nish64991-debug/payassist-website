@@ -53,7 +53,20 @@ const Hero = () => {
                 <div className="absolute bottom-0 left-1/2 h-[40%] w-[110%] -translate-x-1/2 rounded-[100%] bg-radsafe/[0.07] blur-[120px]" />
             </div>
 
-            <div className="relative h-[calc(100svh-72px)] lg:h-auto">
+            {/*
+                Responsive hero media:
+                - <1024px (phones/tablets): true full-bleed cinematic. Fills the exact
+                  viewport height (dvh, with svh/vh fallbacks) minus the 72px fixed header.
+                  object-cover keeps a single continuous video edge-to-edge (no side
+                  strips / letterbox). A small breakpoint-scaled zoom pulls the dome +
+                  device row forward so the subject reads clearly on portrait screens
+                  instead of sitting tiny inside a wide 16:9 frame. Focal point is kept
+                  slightly above centre so the dome apex and device row stay in view while
+                  trimming excess sky/foreground.
+                - >=1024px (laptop/desktop): unchanged reference — natural full-width
+                  16:9 (object-contain, height follows the video), no crop, no zoom.
+            */}
+            <div className="relative h-hero-mobile w-full overflow-hidden lg:h-auto lg:overflow-visible">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.985 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -69,7 +82,7 @@ const Hero = () => {
                         muted
                         playsInline
                         preload="auto"
-                        className="h-full w-full object-cover object-center lg:h-auto lg:object-contain"
+                        className="h-full w-full origin-center scale-[1.15] object-cover object-[50%_46%] will-change-transform xs:scale-[1.1] sm:scale-[1.05] md:scale-100 md:object-center lg:h-auto lg:scale-100 lg:object-contain lg:object-center"
                     />
                 </motion.div>
             </div>
