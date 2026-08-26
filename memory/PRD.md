@@ -157,3 +157,8 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 
 ## Next Tasks
 - Receive logo/video assets + first component-specific instruction; implement hero/video swap first.
+
+## Cleanup (2026-08-26 — Contact form + backend removal)
+- Removed the entire contact form (all fields, submit, validation, relay/direct/web3forms submission logic) from home Contact section. Kept the Contact section itself: heading, description, and email link (support.zassistcare@payassist.in) — now a clean single-column centered contact-info block.
+- Backend was used ONLY by the contact form (/api/contact). Verified no other frontend feature depends on it. Deleted /app/backend entirely; stopped backend supervisor program (supervisor conf is read-only platform file, left untouched). Project is now frontend-only, Vercel-ready.
+- Verified: production build passes; homepage, /z-assist (calculator works), /radsafe, and routing all functional; no backend API calls; no console errors.
