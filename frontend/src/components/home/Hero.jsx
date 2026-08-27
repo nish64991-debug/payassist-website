@@ -63,6 +63,7 @@ const Hero = () => {
                         ref={mobileVideoRef}
                         data-testid="hero-video-mobile"
                         src={HERO_VIDEO_MOBILE_URL}
+                        poster="/assets/payassist-hero-mobile-poster.jpg"
                         autoPlay
                         muted
                         playsInline
