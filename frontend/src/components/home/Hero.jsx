@@ -57,18 +57,30 @@ const Hero = () => {
                 No headline, no PayAssist pill, no extra copy. Video shown COMPLETE at its
                 natural 9:16 aspect (object-contain, edge-to-edge width, no crop / no distortion).
             */}
-            <div className="md:hidden h-[100svh] w-full overflow-hidden bg-[#F1F6FC] pt-[72px]">
-                <video
-                    ref={mobileVideoRef}
-                    data-testid="hero-video-mobile"
-                    src={HERO_VIDEO_MOBILE_URL}
-                    poster="/assets/payassist-hero-mobile-poster.jpg"
-                    autoPlay
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="block h-full w-full object-contain"
+            <div className="md:hidden relative h-[100svh] w-full overflow-hidden bg-[#0B132B]">
+                {/* Soft blurred ambient backdrop (same scene) fills the letterbox bands so the
+                    full uncropped 9:16 video blends seamlessly into a cinematic full-screen frame. */}
+                <img
+                    src="/assets/payassist-hero-mobile-poster.jpg"
+                    alt=""
+                    aria-hidden="true"
+                    className="pointer-events-none absolute inset-0 h-full w-full scale-125 object-cover blur-2xl"
                 />
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/25" aria-hidden="true" />
+                {/* Foreground: complete, uncropped 9:16 video, offset below the fixed navbar. */}
+                <div className="relative z-10 flex h-full w-full items-center justify-center pt-[72px]">
+                    <video
+                        ref={mobileVideoRef}
+                        data-testid="hero-video-mobile"
+                        src={HERO_VIDEO_MOBILE_URL}
+                        poster="/assets/payassist-hero-mobile-poster.jpg"
+                        autoPlay
+                        muted
+                        playsInline
+                        preload="auto"
+                        className="block h-full w-full object-contain"
+                    />
+                </div>
             </div>
 
             {/*
