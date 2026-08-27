@@ -51,7 +51,7 @@ const Hero = () => {
             <div className="relative z-[1] px-6 pt-16 text-center sm:pt-20 lg:pt-24" data-testid="hero-tagline">
                 <h1 className="mx-auto max-w-4xl font-display text-[1.9rem] font-bold leading-[1.12] tracking-tight xs:text-[2.15rem] sm:text-5xl lg:text-6xl">
                     <span className="block text-navy-900">Technology We Trust.</span>
-                    <span className="block text-navy-900">Protection We Need.</span>
+                    <span className="block text-[#0C2A4E]">Protection We Need.</span>
                 </h1>
             </div>
 

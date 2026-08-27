@@ -54,7 +54,7 @@ const initials = (name) =>
         .join("");
 
 const Testimonials = () => (
-    <section id="testimonials" data-testid="testimonials-section" className="bg-white py-20 lg:py-28">
+    <section id="testimonials" data-testid="testimonials-section" className="bg-[#F8F5EC] py-20 lg:py-28">
         <div className="mx-auto max-w-5xl px-4 sm:px-8 lg:px-16">
             <Reveal className="mx-auto max-w-2xl text-center">
                 <span
