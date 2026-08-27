@@ -183,3 +183,10 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 2. Why PayAssist: removed 2 cards ("We Depend on Technology", "Technology Brings New Concerns") + their unused icon imports. 4 cards remain in a balanced 2x2 (md:grid-cols-2), 1-col mobile.
 3. Testimonials: changed grid from md:grid-cols-2 lg:grid-cols-3 -> md:grid-cols-2 (2-col desktop/tablet, 1-col mobile); container max-w-7xl -> max-w-5xl for premium reading width; stagger %3 -> %2. All 6 testimonials kept.
 - Verified 1440/768/390: color rgb(11,19,43), why=4 correct titles balanced, testi=6 in 2 columns desktop/tablet & 1 col mobile, no overflow/console errors. Production build passes. Nothing else touched.
+
+## Mobile hero 9:16 + Solutions cards (2026-08-27, iteration 25)
+- Mobile/phone (<md) hero now plays the NEW user-supplied 9:16 vertical film (/assets/payassist-hero-mobile.mp4, 1080x1920/10s) as the ONLY visual: full-bleed edge-to-edge, enforced via aspect-[9/16] container (measured 0.563 at 360/375/390/430) + object-cover (exact-aspect = no crop/distort). NO tagline, NO PayAssist pill, NO extra copy on phones. Tablet+desktop (>=md) UNCHANGED (existing 16:9 payassist-brand-film.mp4 + "Technology We Trust./Protection We Need." tagline) — verified deskVideo visible & tagline visible at 1280, mobileVideo hidden.
+- Both hero videos share the same ended->scroll-to-#brands + restart-on-return logic (offsetParent guard picks the visible one).
+- Solutions cards: removed tall base min-h-[420px] + huge pt-16 dead space on phones -> compact rectangular cards (ZAssist ~1.07-1.18 ratio). sm+ (>=640) keeps min-h-[460px]/original spacing unchanged. Reduced mobile padding/pill/heading spacing only.
+- ZAssist card logo swapped to new "ZAssist Care" lockup (/assets/zassist-care-logo.png, white-flattened bg to blend into white tile), enlarged (h-11 mobile / h-12 sm) — renders clearly at 129x44 on 390px.
+- Verified 360/375/390/430: 0 horizontal overflow. Note: headless browser can't decode h264 so video area shows blank in screenshots (documented) — real browsers autoplay normally.

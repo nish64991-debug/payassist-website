@@ -6,9 +6,9 @@ const CARDS = [
     {
         id: "z-assist",
         to: "/z-assist",
-        logo: "/assets/zassist-logo-tight.png",
-        logoAlt: "Z Assist Care logo",
-        logoClass: "h-10 w-auto sm:h-11",
+        logo: "/assets/zassist-care-logo.png",
+        logoAlt: "ZAssist Care logo",
+        logoClass: "h-11 w-auto sm:h-12",
         category: "Device Protection",
         pillClass: "bg-[#22B14C] text-white",
         heading: (
@@ -72,7 +72,7 @@ const Solutions = () => (
                         <Link
                             to={c.to}
                             data-testid={c.testId}
-                            className="group relative flex h-full min-h-[420px] flex-col overflow-hidden rounded-[28px] p-7 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_32px_64px_-24px_rgba(7,12,27,0.55)] sm:min-h-[460px] sm:p-9 lg:p-10"
+                            className="group relative flex h-full flex-col overflow-hidden rounded-[24px] p-6 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_32px_64px_-24px_rgba(7,12,27,0.55)] sm:min-h-[460px] sm:rounded-[28px] sm:p-9 lg:p-10"
                             style={{ background: c.cardBg }}
                         >
                             <div
@@ -81,27 +81,27 @@ const Solutions = () => (
                                 aria-hidden="true"
                             />
 
-                            <div className="relative flex items-start justify-between gap-4">
-                                <div className="flex h-[72px] items-center rounded-2xl bg-white px-5 sm:h-[84px] sm:px-6">
+                            <div className="relative flex items-center justify-between gap-3">
+                                <div className="flex h-[60px] items-center rounded-2xl bg-white px-4 sm:h-[84px] sm:px-6">
                                     <img src={c.logo} alt={c.logoAlt} className={c.logoClass} />
                                 </div>
                                 <span
-                                    className={`shrink-0 whitespace-nowrap rounded-full px-4 py-2 font-mono text-[10px] font-bold uppercase tracking-[0.18em] sm:text-[11px] ${c.pillClass}`}
+                                    className={`shrink-0 whitespace-nowrap rounded-full px-3.5 py-1.5 font-mono text-[9px] font-bold uppercase tracking-[0.16em] sm:px-4 sm:py-2 sm:text-[11px] ${c.pillClass}`}
                                 >
                                     {c.category}
                                 </span>
                             </div>
 
-                            <div className="relative mt-auto pt-16 sm:pt-20">
-                                <h3 className="font-display text-[1.7rem] font-bold leading-[1.18] tracking-tight text-white sm:text-3xl lg:text-[2.1rem]">
+                            <div className="relative mt-auto pt-6 sm:pt-20">
+                                <h3 className="font-display text-[1.5rem] font-bold leading-[1.16] tracking-tight text-white sm:text-3xl lg:text-[2.1rem]">
                                     {c.heading}
                                 </h3>
-                                <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-400 sm:text-[15px]">
+                                <p className="mt-3 max-w-md text-sm leading-relaxed text-slate-400 sm:mt-4 sm:text-[15px]">
                                     {c.desc}
                                 </p>
                                 <span
                                     data-testid={`solution-cta-${c.id}`}
-                                    className={`mt-8 inline-flex items-center gap-2 rounded-full px-6 py-3.5 text-sm font-semibold transition-transform duration-300 group-hover:gap-3 ${c.ctaClass}`}
+                                    className={`mt-6 inline-flex items-center gap-2 rounded-full px-5 py-3 text-sm font-semibold transition-transform duration-300 group-hover:gap-3 sm:mt-8 sm:px-6 sm:py-3.5 ${c.ctaClass}`}
                                 >
                                     {c.cta}
                                     <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
