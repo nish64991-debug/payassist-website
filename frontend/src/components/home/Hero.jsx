@@ -57,20 +57,18 @@ const Hero = () => {
                 No headline, no PayAssist pill, no extra copy. Video shown COMPLETE at its
                 natural 9:16 aspect (object-contain, edge-to-edge width, no crop / no distortion).
             */}
-            <div className="md:hidden pt-[72px]">
-                <div className="aspect-[9/16] w-full overflow-hidden bg-[#F1F6FC]">
-                    <video
-                        ref={mobileVideoRef}
-                        data-testid="hero-video-mobile"
-                        src={HERO_VIDEO_MOBILE_URL}
-                        poster="/assets/payassist-hero-mobile-poster.jpg"
-                        autoPlay
-                        muted
-                        playsInline
-                        preload="auto"
-                        className="block h-full w-full object-cover"
-                    />
-                </div>
+            <div className="md:hidden h-[100svh] w-full overflow-hidden bg-[#F1F6FC] pt-[72px]">
+                <video
+                    ref={mobileVideoRef}
+                    data-testid="hero-video-mobile"
+                    src={HERO_VIDEO_MOBILE_URL}
+                    poster="/assets/payassist-hero-mobile-poster.jpg"
+                    autoPlay
+                    muted
+                    playsInline
+                    preload="auto"
+                    className="block h-full w-full object-contain"
+                />
             </div>
 
             {/*
