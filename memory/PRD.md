@@ -190,3 +190,6 @@ Build a premium, modern, responsive, frontend-only website for PayAssist — the
 - Solutions cards: removed tall base min-h-[420px] + huge pt-16 dead space on phones -> compact rectangular cards (ZAssist ~1.07-1.18 ratio). sm+ (>=640) keeps min-h-[460px]/original spacing unchanged. Reduced mobile padding/pill/heading spacing only.
 - ZAssist card logo swapped to new "ZAssist Care" lockup (/assets/zassist-care-logo.png, white-flattened bg to blend into white tile), enlarged (h-11 mobile / h-12 sm) — renders clearly at 129x44 on 390px.
 - Verified 360/375/390/430: 0 horizontal overflow. Note: headless browser can't decode h264 so video area shows blank in screenshots (documented) — real browsers autoplay normally.
+
+## Hero tap-to-unmute (2026-08-27, iteration 26)
+- Added sound toggle to BOTH hero videos (mobile 9:16 + desktop 16:9). Videos still autoplay muted (browser policy); a floating "Tap for sound" pill (bottom-right, black/40 blur, Volume icons from lucide) + tapping the video itself unmutes -> "Sound on". Single isMuted state synced to both refs via effect; on unmute calls play(). Mute choice persists through the loop/restart-on-return logic. testids: hero-sound-toggle-mobile / hero-sound-toggle-desktop. Verified: mobile click flips label + video.muted=false; desktop button present. Lint clean.

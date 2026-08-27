@@ -1,5 +1,6 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
+import { Volume2, VolumeX } from "lucide-react";
 
 export const HERO_VIDEO_URL = "/assets/payassist-brand-film.mp4";
 export const HERO_VIDEO_MOBILE_URL = "/assets/payassist-hero-mobile.mp4";
@@ -9,6 +10,43 @@ const Hero = () => {
     const videoRef = useRef(null);
     const mobileVideoRef = useRef(null);
     const autoScrolledRef = useRef(false);
+    const [isMuted, setIsMuted] = useState(true);
+
+    // Keep both video elements in sync with the mute state.
+    useEffect(() => {
+        [videoRef.current, mobileVideoRef.current].forEach((v) => {
+            if (v) v.muted = isMuted;
+        });
+    }, [isMuted]);
+
+    const toggleMute = (e) => {
+        if (e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+        setIsMuted((prev) => {
+            const next = !prev;
+            [videoRef.current, mobileVideoRef.current].forEach((v) => {
+                if (!v) return;
+                v.muted = next;
+                if (!next) v.play().catch(() => {});
+            });
+            return next;
+        });
+    };
+
+    const renderSoundButton = (testId, className = "") => (
+        <button
+            type="button"
+            onClick={toggleMute}
+            data-testid={testId}
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+            className={`absolute z-20 inline-flex items-center gap-2 rounded-full bg-black/40 px-3.5 py-2 text-xs font-semibold text-white ring-1 ring-white/25 backdrop-blur-md transition-all duration-300 hover:bg-black/60 ${className}`}
+        >
+            {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
+            <span>{isMuted ? "Tap for sound" : "Sound on"}</span>
+        </button>
+    );
 
     useEffect(() => {
         const section = sectionRef.current;
@@ -75,12 +113,15 @@ const Hero = () => {
                         src={HERO_VIDEO_MOBILE_URL}
                         poster="/assets/payassist-hero-mobile-poster.jpg"
                         autoPlay
-                        muted
+                        muted={isMuted}
                         playsInline
                         preload="auto"
-                        className="block h-full w-full object-contain"
+                        onClick={toggleMute}
+                        className="block h-full w-full cursor-pointer object-contain"
                     />
                 </div>
+                {renderSoundButton("hero-sound-toggle-mobile", "bottom-8 right-5")}
+
             </div>
 
             {/*
@@ -109,12 +150,14 @@ const Hero = () => {
                                 src={HERO_VIDEO_URL}
                                 poster="/assets/hero-poster.jpg"
                                 autoPlay
-                                muted
+                                muted={isMuted}
                                 playsInline
                                 preload="auto"
-                                className="h-full w-full object-contain object-center"
+                                onClick={toggleMute}
+                                className="h-full w-full cursor-pointer object-contain object-center"
                             />
                         </motion.div>
+                        {renderSoundButton("hero-sound-toggle-desktop", "bottom-4 right-4")}
                     </div>
                 </div>
             </div>
